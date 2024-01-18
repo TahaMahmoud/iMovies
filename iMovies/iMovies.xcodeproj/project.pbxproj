@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,10 @@
 		EEB87ABE2B5977CA00660603 /* iMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87ABD2B5977CA00660603 /* iMoviesTests.swift */; };
 		EEB87AC82B5977CA00660603 /* iMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AC72B5977CA00660603 /* iMoviesUITests.swift */; };
 		EEB87ACA2B5977CA00660603 /* iMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AC92B5977CA00660603 /* iMoviesUITestsLaunchTests.swift */; };
+		EEB87AD92B59930500660603 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = EEB87AD82B59930500660603 /* Core */; };
+		EEB87ADB2B59930500660603 /* DataPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = EEB87ADA2B59930500660603 /* DataPersistence */; };
+		EEB87ADD2B59930500660603 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = EEB87ADC2B59930500660603 /* Logger */; };
+		EEB87ADF2B59930500660603 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = EEB87ADE2B59930500660603 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB87ADD2B59930500660603 /* Logger in Frameworks */,
+				EEB87ADB2B59930500660603 /* DataPersistence in Frameworks */,
+				EEB87ADF2B59930500660603 /* Networking in Frameworks */,
+				EEB87AD92B59930500660603 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +152,12 @@
 			dependencies = (
 			);
 			name = iMovies;
+			packageProductDependencies = (
+				EEB87AD82B59930500660603 /* Core */,
+				EEB87ADA2B59930500660603 /* DataPersistence */,
+				EEB87ADC2B59930500660603 /* Logger */,
+				EEB87ADE2B59930500660603 /* Networking */,
+			);
 			productName = iMovies;
 			productReference = EEB87AA72B5977C800660603 /* iMovies.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +230,9 @@
 				Base,
 			);
 			mainGroup = EEB87A9E2B5977C800660603;
+			packageReferences = (
+				EEB87AD72B59930500660603 /* XCLocalSwiftPackageReference "Core" */,
+			);
 			productRefGroup = EEB87AA82B5977C800660603 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -613,6 +630,32 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		EEB87AD72B59930500660603 /* XCLocalSwiftPackageReference "Core" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Core;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EEB87AD82B59930500660603 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		EEB87ADA2B59930500660603 /* DataPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DataPersistence;
+		};
+		EEB87ADC2B59930500660603 /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Logger;
+		};
+		EEB87ADE2B59930500660603 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EEB87A9F2B5977C800660603 /* Project object */;
 }
