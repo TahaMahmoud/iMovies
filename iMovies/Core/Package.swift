@@ -11,6 +11,8 @@ let package = Package(
                  targets: ["Core"]),
         .library(name: "DataPersistence",
                  targets: ["DataPersistence"]),
+        .library(name: "Logger",
+                 targets: ["Logger"])
     ],
     targets: [
         .target(
@@ -20,9 +22,14 @@ let package = Package(
         .target(
             name: "DataPersistence"
         ),
+        .target(
+            name: "Logger",
+            dependencies: ["Core"]
+        ),
         .testTarget(name: "CoreTests",
                     dependencies: ["Core"]),
-        .testTarget(name: "DataPersistenceTests",
-                    dependencies: ["DataPersistence"])
+        .testTarget(name: "LoggerTests",
+                    dependencies: ["Logger"]),
     ]
 )
+
