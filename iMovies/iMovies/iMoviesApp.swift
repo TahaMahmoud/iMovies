@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+// swiftlint: disable type_name
 @main
 struct iMoviesApp: App {
     var body: some Scene {
@@ -16,3 +17,4 @@ struct iMoviesApp: App {
         }
     }
 }
+// swiftlint: enable type_name
