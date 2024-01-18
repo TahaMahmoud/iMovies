@@ -1,4 +1,4 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -9,6 +9,8 @@ let package = Package(
     products: [
         .library(name: "Core",
                  targets: ["Core"]),
+        .library(name: "Networking",
+                 targets: ["Networking"]),
         .library(name: "DataPersistence",
                  targets: ["DataPersistence"]),
         .library(name: "Logger",
@@ -19,6 +21,9 @@ let package = Package(
             name: "Core",
             dependencies: []
         ),
+        .target(name: "Networking",
+                dependencies: ["Core",
+                               "Logger"]),
         .target(
             name: "DataPersistence"
         ),
@@ -28,8 +33,11 @@ let package = Package(
         ),
         .testTarget(name: "CoreTests",
                     dependencies: ["Core"]),
+        .testTarget(name: "DataPersistenceTests",
+                    dependencies: ["DataPersistence"]),
         .testTarget(name: "LoggerTests",
                     dependencies: ["Logger"]),
+        .testTarget(name: "NetworkingTests",
+                    dependencies: ["Networking"])
     ]
 )
-
