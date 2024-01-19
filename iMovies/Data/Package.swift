@@ -8,7 +8,6 @@ let package = Package(
     platforms: [.iOS(.v15), .macOS(.v12)],
 
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "ConfigData",
             targets: ["ConfigData"]),

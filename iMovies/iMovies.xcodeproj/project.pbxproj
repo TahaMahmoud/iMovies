@@ -11,6 +11,7 @@
 		EE13FB572B5A6721005D8A84 /* MoviesDomain in Frameworks */ = {isa = PBXBuildFile; productRef = EE13FB562B5A6721005D8A84 /* MoviesDomain */; };
 		EE13FB5A2B5A672D005D8A84 /* ConfigData in Frameworks */ = {isa = PBXBuildFile; productRef = EE13FB592B5A672D005D8A84 /* ConfigData */; };
 		EE13FB5C2B5A672D005D8A84 /* MoviesData in Frameworks */ = {isa = PBXBuildFile; productRef = EE13FB5B2B5A672D005D8A84 /* MoviesData */; };
+		EE13FB5F2B5A677B005D8A84 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = EE13FB5E2B5A677B005D8A84 /* DesignSystem */; };
 		EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAA2B5977C800660603 /* iMoviesApp.swift */; };
 		EEB87AAD2B5977C800660603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAC2B5977C800660603 /* ContentView.swift */; };
 		EEB87AB12B5977CA00660603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB87AB02B5977CA00660603 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 				EEB87ADD2B59930500660603 /* Logger in Frameworks */,
 				EE13FB5A2B5A672D005D8A84 /* ConfigData in Frameworks */,
 				EEB87ADB2B59930500660603 /* DataPersistence in Frameworks */,
+				EE13FB5F2B5A677B005D8A84 /* DesignSystem in Frameworks */,
 				EEB87ADF2B59930500660603 /* Networking in Frameworks */,
 				EE13FB572B5A6721005D8A84 /* MoviesDomain in Frameworks */,
 				EE13FB552B5A6721005D8A84 /* CoreDomain in Frameworks */,
@@ -169,6 +171,7 @@
 				EE13FB562B5A6721005D8A84 /* MoviesDomain */,
 				EE13FB592B5A672D005D8A84 /* ConfigData */,
 				EE13FB5B2B5A672D005D8A84 /* MoviesData */,
+				EE13FB5E2B5A677B005D8A84 /* DesignSystem */,
 			);
 			productName = iMovies;
 			productReference = EEB87AA72B5977C800660603 /* iMovies.app */;
@@ -246,6 +249,7 @@
 				EEB87AD72B59930500660603 /* XCLocalSwiftPackageReference "Core" */,
 				EE13FB532B5A6721005D8A84 /* XCLocalSwiftPackageReference "Domain" */,
 				EE13FB582B5A672D005D8A84 /* XCLocalSwiftPackageReference "Data" */,
+				EE13FB5D2B5A677B005D8A84 /* XCLocalSwiftPackageReference "DesignSystem" */,
 			);
 			productRefGroup = EEB87AA82B5977C800660603 /* Products */;
 			projectDirPath = "";
@@ -654,6 +658,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Data;
 		};
+		EE13FB5D2B5A677B005D8A84 /* XCLocalSwiftPackageReference "DesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = DesignSystem;
+		};
 		EEB87AD72B59930500660603 /* XCLocalSwiftPackageReference "Core" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Core;
@@ -676,6 +684,10 @@
 		EE13FB5B2B5A672D005D8A84 /* MoviesData */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MoviesData;
+		};
+		EE13FB5E2B5A677B005D8A84 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
 		};
 		EEB87AD82B59930500660603 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
