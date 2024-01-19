@@ -22,6 +22,7 @@
 		EE13FB822B5ACA08005D8A84 /* DataConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB812B5ACA08005D8A84 /* DataConfigurator.swift */; };
 		EE13FB842B5ACA29005D8A84 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB832B5ACA29005D8A84 /* DIContainer.swift */; };
 		EE13FB862B5ACA66005D8A84 /* DIContainer+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB852B5ACA66005D8A84 /* DIContainer+Networking.swift */; };
+		EE13FB882B5ACB39005D8A84 /* LoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB872B5ACB39005D8A84 /* LoggerManager.swift */; };
 		EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAA2B5977C800660603 /* iMoviesApp.swift */; };
 		EEB87AAD2B5977C800660603 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAC2B5977C800660603 /* HomeView.swift */; };
 		EEB87AB12B5977CA00660603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB87AB02B5977CA00660603 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		EE13FB812B5ACA08005D8A84 /* DataConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConfigurator.swift; sourceTree = "<group>"; };
 		EE13FB832B5ACA29005D8A84 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		EE13FB852B5ACA66005D8A84 /* DIContainer+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DIContainer+Networking.swift"; sourceTree = "<group>"; };
+		EE13FB872B5ACB39005D8A84 /* LoggerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerManager.swift; sourceTree = "<group>"; };
 		EEB87AA72B5977C800660603 /* iMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB87AAA2B5977C800660603 /* iMoviesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMoviesApp.swift; sourceTree = "<group>"; };
 		EEB87AAC2B5977C800660603 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				EE13FB7F2B5AC971005D8A84 /* AuthManager.swift */,
 				EE13FB812B5ACA08005D8A84 /* DataConfigurator.swift */,
+				EE13FB872B5ACB39005D8A84 /* LoggerManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				EE13FB7E2B5AC788005D8A84 /* APIConfig.swift in Sources */,
 				EE13FB782B5AC601005D8A84 /* TabBarItems.swift in Sources */,
 				EE13FB7C2B5AC718005D8A84 /* AppConfig.swift in Sources */,
+				EE13FB882B5ACB39005D8A84 /* LoggerManager.swift in Sources */,
 				EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */,
 				EE13FB7A2B5AC614005D8A84 /* TabBarView.swift in Sources */,
 				EE13FB822B5ACA08005D8A84 /* DataConfigurator.swift in Sources */,
