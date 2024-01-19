@@ -1,7 +1,7 @@
 import XCTest
-@testable import Domain
+@testable import CoreDomain
 
-final class DomainTests: XCTestCase {
+final class CoreDomainTests: XCTestCase {
     func testExample() throws {
     }
 }
