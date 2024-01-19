@@ -20,7 +20,7 @@ enum TabBarItems: Int, CaseIterable {
         case .search:
             return "Search"
         case .wishlist:
-            return "Chat"
+            return "Wishlist"
         }
     }
 
