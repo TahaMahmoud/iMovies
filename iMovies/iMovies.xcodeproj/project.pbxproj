@@ -26,6 +26,7 @@
 		EE13FB8A2B5ACBF4005D8A84 /* DesignSystemConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB892B5ACBF4005D8A84 /* DesignSystemConfigurator.swift */; };
 		EE13FB8C2B5ACE2D005D8A84 /* DIContainer+MoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB8B2B5ACE2D005D8A84 /* DIContainer+MoviesUseCase.swift */; };
 		EE13FB8E2B5AD2BE005D8A84 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB8D2B5AD2BE005D8A84 /* BannerView.swift */; };
+		EE13FB902B5AD751005D8A84 /* HomeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB8F2B5AD751005D8A84 /* HomeSectionView.swift */; };
 		EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAA2B5977C800660603 /* iMoviesApp.swift */; };
 		EEB87AAD2B5977C800660603 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAC2B5977C800660603 /* HomeView.swift */; };
 		EEB87AB12B5977CA00660603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB87AB02B5977CA00660603 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		EE13FB892B5ACBF4005D8A84 /* DesignSystemConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemConfigurator.swift; sourceTree = "<group>"; };
 		EE13FB8B2B5ACE2D005D8A84 /* DIContainer+MoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DIContainer+MoviesUseCase.swift"; sourceTree = "<group>"; };
 		EE13FB8D2B5AD2BE005D8A84 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		EE13FB8F2B5AD751005D8A84 /* HomeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionView.swift; sourceTree = "<group>"; };
 		EEB87AA72B5977C800660603 /* iMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB87AAA2B5977C800660603 /* iMoviesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMoviesApp.swift; sourceTree = "<group>"; };
 		EEB87AAC2B5977C800660603 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				EE13FB8D2B5AD2BE005D8A84 /* BannerView.swift */,
+				EE13FB8F2B5AD751005D8A84 /* HomeSectionView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				EE13FB8C2B5ACE2D005D8A84 /* DIContainer+MoviesUseCase.swift in Sources */,
 				EE13FB7E2B5AC788005D8A84 /* APIConfig.swift in Sources */,
 				EE13FB782B5AC601005D8A84 /* TabBarItems.swift in Sources */,
+				EE13FB902B5AD751005D8A84 /* HomeSectionView.swift in Sources */,
 				EE13FB8A2B5ACBF4005D8A84 /* DesignSystemConfigurator.swift in Sources */,
 				EE13FB7C2B5AC718005D8A84 /* AppConfig.swift in Sources */,
 				EE13FB882B5ACB39005D8A84 /* LoggerManager.swift in Sources */,
