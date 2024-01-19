@@ -89,6 +89,152 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE13FB602B5AB50B005D8A84 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EE13FB6A2B5AB57D005D8A84 /* Configs */,
+				EE13FB692B5AB574005D8A84 /* Managers */,
+				EE13FB632B5AB537005D8A84 /* DependencyInjection  */,
+				EE13FB622B5AB52F005D8A84 /* AppDelegate */,
+				EE13FB612B5AB527005D8A84 /* Assets */,
+				EE13FB6B2B5AB585005D8A84 /* Scenes */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EE13FB612B5AB527005D8A84 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EEB87AB02B5977CA00660603 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		EE13FB622B5AB52F005D8A84 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				EEB87AAA2B5977C800660603 /* iMoviesApp.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		EE13FB632B5AB537005D8A84 /* DependencyInjection  */ = {
+			isa = PBXGroup;
+			children = (
+				EE13FB652B5AB54C005D8A84 /* Networking */,
+				EE13FB642B5AB543005D8A84 /* UseCases */,
+			);
+			path = "DependencyInjection ";
+			sourceTree = "<group>";
+		};
+		EE13FB642B5AB543005D8A84 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				EE13FB682B5AB561005D8A84 /* Banner */,
+				EE13FB672B5AB55B005D8A84 /* WishList */,
+				EE13FB662B5AB555005D8A84 /* Movies */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		EE13FB652B5AB54C005D8A84 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		EE13FB662B5AB555005D8A84 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		EE13FB672B5AB55B005D8A84 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
+		EE13FB682B5AB561005D8A84 /* Banner */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Banner;
+			sourceTree = "<group>";
+		};
+		EE13FB692B5AB574005D8A84 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EE13FB6A2B5AB57D005D8A84 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		EE13FB6B2B5AB585005D8A84 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EE13FB712B5AB5C5005D8A84 /* TabBar */,
+				EE13FB702B5AB5BD005D8A84 /* Home */,
+				EE13FB6F2B5AB5B5005D8A84 /* Search */,
+				EE13FB6E2B5AB5AF005D8A84 /* Category */,
+				EE13FB6D2B5AB5A8005D8A84 /* Details */,
+				EE13FB6C2B5AB5A1005D8A84 /* Wishlist */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EE13FB6C2B5AB5A1005D8A84 /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wishlist;
+			sourceTree = "<group>";
+		};
+		EE13FB6D2B5AB5A8005D8A84 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		EE13FB6E2B5AB5AF005D8A84 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		EE13FB6F2B5AB5B5005D8A84 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		EE13FB702B5AB5BD005D8A84 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EEB87AAC2B5977C800660603 /* ContentView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EE13FB712B5AB5C5005D8A84 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		EEB87A9E2B5977C800660603 = {
 			isa = PBXGroup;
 			children = (
@@ -112,9 +258,7 @@
 		EEB87AA92B5977C800660603 /* iMovies */ = {
 			isa = PBXGroup;
 			children = (
-				EEB87AAA2B5977C800660603 /* iMoviesApp.swift */,
-				EEB87AAC2B5977C800660603 /* ContentView.swift */,
-				EEB87AB02B5977CA00660603 /* Assets.xcassets */,
+				EE13FB602B5AB50B005D8A84 /* App */,
 				EEB87AB22B5977CA00660603 /* Preview Content */,
 			);
 			path = iMovies;

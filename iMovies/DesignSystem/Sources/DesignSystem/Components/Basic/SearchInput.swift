@@ -20,7 +20,7 @@ public struct SearchInput: View {
         self.placeHolder = placeHolder
         self.didSearchPressed = didSearchPressed
     }
-    
+
     public var body: some View {
         HStack {
             TextField("", text: $text)
