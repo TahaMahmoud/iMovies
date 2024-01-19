@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
-import SwiftData
+import CoreData
+import DesignSystem
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
         VStack {
-
+            Text("Home")
         }
     }
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }

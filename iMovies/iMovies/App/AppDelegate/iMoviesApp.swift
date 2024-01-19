@@ -13,7 +13,7 @@ import SwiftData
 struct iMoviesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView()
         }
     }
 }
