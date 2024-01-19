@@ -16,6 +16,8 @@
 		EE13FB762B5AC5D5005D8A84 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB752B5AC5D5005D8A84 /* WishListView.swift */; };
 		EE13FB782B5AC601005D8A84 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB772B5AC601005D8A84 /* TabBarItems.swift */; };
 		EE13FB7A2B5AC614005D8A84 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB792B5AC614005D8A84 /* TabBarView.swift */; };
+		EE13FB7C2B5AC718005D8A84 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB7B2B5AC718005D8A84 /* AppConfig.swift */; };
+		EE13FB7E2B5AC788005D8A84 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FB7D2B5AC788005D8A84 /* APIConfig.swift */; };
 		EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAA2B5977C800660603 /* iMoviesApp.swift */; };
 		EEB87AAD2B5977C800660603 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAC2B5977C800660603 /* HomeView.swift */; };
 		EEB87AB12B5977CA00660603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB87AB02B5977CA00660603 /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		EE13FB752B5AC5D5005D8A84 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		EE13FB772B5AC601005D8A84 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		EE13FB792B5AC614005D8A84 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		EE13FB7B2B5AC718005D8A84 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		EE13FB7D2B5AC788005D8A84 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		EEB87AA72B5977C800660603 /* iMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB87AAA2B5977C800660603 /* iMoviesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMoviesApp.swift; sourceTree = "<group>"; };
 		EEB87AAC2B5977C800660603 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 		EE13FB6A2B5AB57D005D8A84 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				EE13FB7B2B5AC718005D8A84 /* AppConfig.swift */,
+				EE13FB7D2B5AC788005D8A84 /* APIConfig.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -481,7 +487,9 @@
 			files = (
 				EEB87AAD2B5977C800660603 /* HomeView.swift in Sources */,
 				EE13FB742B5AC5B6005D8A84 /* SearchView.swift in Sources */,
+				EE13FB7E2B5AC788005D8A84 /* APIConfig.swift in Sources */,
 				EE13FB782B5AC601005D8A84 /* TabBarItems.swift in Sources */,
+				EE13FB7C2B5AC718005D8A84 /* AppConfig.swift in Sources */,
 				EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */,
 				EE13FB7A2B5AC614005D8A84 /* TabBarView.swift in Sources */,
 				EE13FB762B5AC5D5005D8A84 /* WishListView.swift in Sources */,
