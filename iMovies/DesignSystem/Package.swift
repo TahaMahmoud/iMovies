@@ -10,6 +10,10 @@ let package = Package(
         .library(name: "DesignSystem",
                  targets: ["DesignSystem"])
     ],
+    dependencies: [
+        .package(name: "Core",
+                 path: "../Core")
+    ],
     targets: [
         .target(name: "DesignSystem",
                 resources: [
