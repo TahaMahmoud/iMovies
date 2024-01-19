@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE13FB552B5A6721005D8A84 /* CoreDomain in Frameworks */ = {isa = PBXBuildFile; productRef = EE13FB542B5A6721005D8A84 /* CoreDomain */; };
+		EE13FB572B5A6721005D8A84 /* MoviesDomain in Frameworks */ = {isa = PBXBuildFile; productRef = EE13FB562B5A6721005D8A84 /* MoviesDomain */; };
+		EE13FB5A2B5A672D005D8A84 /* ConfigData in Frameworks */ = {isa = PBXBuildFile; productRef = EE13FB592B5A672D005D8A84 /* ConfigData */; };
+		EE13FB5C2B5A672D005D8A84 /* MoviesData in Frameworks */ = {isa = PBXBuildFile; productRef = EE13FB5B2B5A672D005D8A84 /* MoviesData */; };
 		EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAA2B5977C800660603 /* iMoviesApp.swift */; };
 		EEB87AAD2B5977C800660603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAC2B5977C800660603 /* ContentView.swift */; };
 		EEB87AB12B5977CA00660603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB87AB02B5977CA00660603 /* Assets.xcassets */; };
@@ -56,9 +60,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB87ADD2B59930500660603 /* Logger in Frameworks */,
+				EE13FB5A2B5A672D005D8A84 /* ConfigData in Frameworks */,
 				EEB87ADB2B59930500660603 /* DataPersistence in Frameworks */,
 				EEB87ADF2B59930500660603 /* Networking in Frameworks */,
+				EE13FB572B5A6721005D8A84 /* MoviesDomain in Frameworks */,
+				EE13FB552B5A6721005D8A84 /* CoreDomain in Frameworks */,
 				EEB87AD92B59930500660603 /* Core in Frameworks */,
+				EE13FB5C2B5A672D005D8A84 /* MoviesData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +165,10 @@
 				EEB87ADA2B59930500660603 /* DataPersistence */,
 				EEB87ADC2B59930500660603 /* Logger */,
 				EEB87ADE2B59930500660603 /* Networking */,
+				EE13FB542B5A6721005D8A84 /* CoreDomain */,
+				EE13FB562B5A6721005D8A84 /* MoviesDomain */,
+				EE13FB592B5A672D005D8A84 /* ConfigData */,
+				EE13FB5B2B5A672D005D8A84 /* MoviesData */,
 			);
 			productName = iMovies;
 			productReference = EEB87AA72B5977C800660603 /* iMovies.app */;
@@ -232,6 +244,8 @@
 			mainGroup = EEB87A9E2B5977C800660603;
 			packageReferences = (
 				EEB87AD72B59930500660603 /* XCLocalSwiftPackageReference "Core" */,
+				EE13FB532B5A6721005D8A84 /* XCLocalSwiftPackageReference "Domain" */,
+				EE13FB582B5A672D005D8A84 /* XCLocalSwiftPackageReference "Data" */,
 			);
 			productRefGroup = EEB87AA82B5977C800660603 /* Products */;
 			projectDirPath = "";
@@ -632,6 +646,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		EE13FB532B5A6721005D8A84 /* XCLocalSwiftPackageReference "Domain" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Domain;
+		};
+		EE13FB582B5A672D005D8A84 /* XCLocalSwiftPackageReference "Data" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Data;
+		};
 		EEB87AD72B59930500660603 /* XCLocalSwiftPackageReference "Core" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Core;
@@ -639,6 +661,22 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE13FB542B5A6721005D8A84 /* CoreDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreDomain;
+		};
+		EE13FB562B5A6721005D8A84 /* MoviesDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MoviesDomain;
+		};
+		EE13FB592B5A672D005D8A84 /* ConfigData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ConfigData;
+		};
+		EE13FB5B2B5A672D005D8A84 /* MoviesData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MoviesData;
+		};
 		EEB87AD82B59930500660603 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
