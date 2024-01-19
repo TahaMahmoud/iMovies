@@ -16,6 +16,9 @@ let package = Package(
     ],
     targets: [
         .target(name: "DesignSystem",
+                dependencies: [
+                    .product(name: "Core", package: "Core")
+                ],
                 resources: [
                     .copy("../DesignSystem/Resources/Icons/Assets.xcassets"),
                     .copy("../DesignSystem/Resources/Fonts/iMovies/Montserrat-Black.ttf"),
