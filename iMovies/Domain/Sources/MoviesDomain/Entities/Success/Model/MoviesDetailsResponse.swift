@@ -8,18 +8,18 @@
 import Foundation
 
 public struct MoviesDetailsResponse: Codable {
-    let genres: [Genre]?
-    let backdropPath: String?
-    let homepage: String?
-    let id: Int?
-    let imdbID, originalLanguage, originalTitle, overview: String?
-    let posterPath: String?
-    let releaseDate: String?
-    let runtime: Int?
-    let title: String?
-    let video: Bool?
-    let voteAverage: Double?
-    let voteCount: Int?
+    public let genres: [Genre]?
+    public let backdropPath: String?
+    public let homepage: String?
+    public let id: Int?
+    public let imdbID, originalLanguage, originalTitle, overview: String?
+    public let posterPath: String?
+    public let releaseDate: String?
+    public let runtime: Int?
+    public let title: String?
+    public let video: Bool?
+    public let voteAverage: Double?
+    public let voteCount: Int?
 
     public init(genres: [Genre]?,
                 backdropPath: String?,
@@ -55,8 +55,8 @@ public struct MoviesDetailsResponse: Codable {
 }
 
 public struct Genre: Codable {
-    let id: Int?
-    let name: String?
+    public  let id: Int?
+    public let name: String?
 
     public init(id: Int?,
                 name: String?) {

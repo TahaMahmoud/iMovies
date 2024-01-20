@@ -42,7 +42,7 @@ extension HomeViewModel {
         switch result {
         case .success(let movies):
             return map(category: category, response: movies)
-        case .failure(let failure):
+        case .failure:
             return HomeSectionViewModel(category: category,
                                         moviesList: [],
                                         seeMorePressed: { _ in })
@@ -87,10 +87,13 @@ extension HomeViewModel {
         return HomeSectionViewModel(
             category: category,
             moviesList: movies.shuffled().prefix(5).map {
-                HomeMovieItemViewModel(posterURL: MoviePosterURLBuilder.getFullPosterURL(
+                HomeMovieItemViewModel(id: $0.id ?? 0,
+                                       posterURL: MoviePosterURLBuilder.getFullPosterURL(
                     path: $0.posterPath ?? ""),
                                        name: $0.title ?? "",
-                                       rating: $0.voteAverage ?? 0)
+                                       rating: $0.voteAverage ?? 0) { movieId in
+                    self.movieDetails.send(movieId)
+                }
             }) { category in
                 print("See more pressed on \(category)")
             }

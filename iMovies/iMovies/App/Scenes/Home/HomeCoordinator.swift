@@ -15,4 +15,9 @@ final class HomeCoordinator: NavigationCoordinatable {
     @ViewBuilder func makeHome() -> some View {
         HomeView(viewModel: Container.homeViewModel)
     }
+
+    @Route(.push) var movieDetails = makePDP
+    @ViewBuilder private func makePDP(movieId: Int) -> some View {
+        MovieDetailsCoordinator(movieId: movieId).view()
+    }
 }

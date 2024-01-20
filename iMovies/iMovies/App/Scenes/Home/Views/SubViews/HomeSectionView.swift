@@ -38,6 +38,9 @@ struct HomeSectionView: View {
                     ShortMovieItemView(imageURL: movie.posterURL,
                                        name: movie.name,
                                        rating: movie.rating)
+                    .onTapGesture {
+                        movie.didPressOnDetails(movie.id)
+                    }
                 }
             }
         }
@@ -47,21 +50,26 @@ struct HomeSectionView: View {
 #Preview {
     HomeSectionView(viewModel: .init(category: .nowPlaying,
                           moviesList: [
-                              .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                            .init(id: 0,
+                                  posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                     name: "Movie Name",
-                                    rating: 9.5),
-                              .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                  rating: 9.5, didPressOnDetails: {_ in }),
+                              .init(id: 0,
+                                    posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                     name: "Movie Name",
-                                    rating: 9.5),
-                              .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                    rating: 9.5, didPressOnDetails: {_ in }),
+                              .init(id: 0,
+                                    posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                     name: "Movie Name",
-                                    rating: 9.5),
-                              .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                    rating: 9.5, didPressOnDetails: {_ in }),
+                              .init(id: 0,
+                                    posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                     name: "Movie Name",
-                                    rating: 9.5),
-                              .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                    rating: 9.5, didPressOnDetails: {_ in }),
+                              .init(id: 0,
+                                    posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                     name: "Movie Name",
-                                    rating: 9.5)
+                                    rating: 9.5, didPressOnDetails: {_ in })
 
                           ]) { _ in
           })
@@ -71,21 +79,26 @@ struct HomeSectionView: View {
 #Preview {
     HomeSectionView(viewModel: .init(category: .popular,
                                      moviesList: [
-                                         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                         .init(id: 0,
+                                               posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                                name: "Movie Name",
-                                               rating: 9.5),
-                                         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                               rating: 9.5, didPressOnDetails: {_ in }),
+                                         .init(id: 0,
+                                               posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                                name: "Movie Name",
-                                               rating: 9.5),
-                                         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                               rating: 9.5, didPressOnDetails: {_ in }),
+                                         .init(id: 0,
+                                               posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                                name: "Movie Name",
-                                               rating: 9.5),
-                                         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                               rating: 9.5, didPressOnDetails: {_ in }),
+                                         .init(id: 0,
+                                               posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                                name: "Movie Name",
-                                               rating: 9.5),
-                                         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
+                                               rating: 9.5, didPressOnDetails: {_ in }),
+                                         .init(id: 0,
+                                               posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                                                name: "Movie Name",
-                                               rating: 9.5)
+                                               rating: 9.5, didPressOnDetails: {_ in })
 
                                      ]) { _ in
                      })

@@ -8,9 +8,9 @@
 import Foundation
 
 public struct ReviewsResponse: Codable {
-    let id, page: Int?
-    let results: [Review]?
-    let totalPages, totalResults: Int?
+    public let id, page: Int?
+    public let results: [Review]?
+    public let totalPages, totalResults: Int?
 
     public init(id: Int?,
                 page: Int?,
@@ -26,10 +26,10 @@ public struct ReviewsResponse: Codable {
 }
 
 public struct Review: Codable {
-    let author: String?
-    let authorDetails: AuthorDetails?
-    let content, createdAt, id, updatedAt: String?
-    let url: String?
+    public let author: String?
+    public let authorDetails: AuthorDetails?
+    public let content, createdAt, id, updatedAt: String?
+    public let url: String?
 
     public init(author: String?,
                 authorDetails: AuthorDetails?,
@@ -49,8 +49,8 @@ public struct Review: Codable {
 }
 
 public struct AuthorDetails: Codable {
-    let name, username, avatarPath: String?
-    let rating: Double?
+    public let name, username, avatarPath: String?
+    public let rating: Double?
 
     public init(name: String?,
                 username: String?,

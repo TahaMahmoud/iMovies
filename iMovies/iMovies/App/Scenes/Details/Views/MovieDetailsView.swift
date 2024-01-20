@@ -9,43 +9,67 @@ import DesignSystem
 import SwiftUI
 
 struct MovieDetailsView: View {
+    @State var viewModel: MovieDetailsViewModel
     @State var selectedTab: MovieDetailsTab = .about
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                GeometryReader { geometry in
-                    header(geometry: geometry)
+        ContentView(source: viewModel) { movieDetails in
+            ScrollView(.vertical, showsIndicators: false) {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack {
+                        GeometryReader { geometry in
+                            header(movieDetails: movieDetails,
+                                   geometry: geometry)
+                        }
+                        .frame(height: 0.3 * UIScreen.main.bounds.height)
+
+                        Spacer()
+
+                        VStack {
+                            movieName(movieDetails: movieDetails)
+                                .padding()
+
+                            quickInfo(movieDetails: movieDetails)
+                            genres(movieDetails: movieDetails)
+                            tabsView(movieDetails: movieDetails)
+                                .padding()
+                        }
+                    }
                 }
-                .frame(height: 0.3 * UIScreen.main.bounds.height)
-
-                Spacer()
-
-                VStack {
-                    movieName
-                        .padding()
-
-                    quickInfo
-                    genres
-                    tabsView
-                        .padding()
-                }
-                .offset(y: 0.2 * UIScreen.main.bounds.height)
+                .ignoresSafeArea()
+                .background(DesignSystem.colors.black)
             }
+            .ignoresSafeArea()
+        } failureContent: {
+            emptyState
+        } emptyContent: {
+            failureState
         }
-        .ignoresSafeArea()
-        .background(DesignSystem.colors.black)
+        .onAppear {
+            viewModel.viewDidLoad.send()
+        }
     }
 
-    func header(geometry: GeometryProxy) -> some View {
-        RemoteImage(url: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg")
+    var emptyState: some View {
+        VStack {
+        }
+    }
+
+    var failureState: some View {
+        VStack {
+        }
+    }
+
+    func header(movieDetails: MovieDetailsModel,
+                geometry: GeometryProxy) -> some View {
+        RemoteImage(url: movieDetails.info.cover)
             .frame(width: geometry.size.width, height: geometry.size.height)
     }
 
-    var movieName: some View {
+    func movieName(movieDetails: MovieDetailsModel) -> some View {
         VStack(spacing: 15) {
             HStack {
-                Text("Spiderman No Way Home")
+                Text(movieDetails.info.name)
                     .font(Font.montserrat(weight: .semiBold, size: 16))
                     .foregroundStyle(DesignSystem.colors.white)
 
@@ -56,12 +80,12 @@ struct MovieDetailsView: View {
                 }
 
                 Button(action: {}) {
-                    Image(.icSave)
+                    Image(movieDetails.info.isInWishlist ? .icSaved : .icSave)
                 }
             }
 
             HStack {
-                RatingView(rating: 9.6)
+                RatingView(rating: movieDetails.info.rating)
                     .padding(.vertical, 4)
                     .padding(.horizontal, 8)
                     .background(DesignSystem.colors.secondary.opacity(0.3))
@@ -71,11 +95,11 @@ struct MovieDetailsView: View {
         }
     }
 
-    var quickInfo: some View {
+    func quickInfo(movieDetails: MovieDetailsModel) -> some View {
         HStack {
             HStack {
                 Image(.icDateDetails)
-                Text("2021")
+                Text(movieDetails.info.year)
                     .font(Font.montserrat(weight: .semiBold, size: 16))
                     .foregroundStyle(DesignSystem.colors.secondaryGray)
             }
@@ -84,33 +108,33 @@ struct MovieDetailsView: View {
                 .foregroundStyle(DesignSystem.colors.secondaryGray)
             HStack {
                 Image(.icDurationDetails)
-                Text("148 Minutes")
+                Text("\(movieDetails.info.duration) Minutes")
                     .font(Font.montserrat(weight: .semiBold, size: 16))
                     .foregroundStyle(DesignSystem.colors.secondaryGray)
             }
         }
     }
 
-    var genres: some View {
+    func genres(movieDetails: MovieDetailsModel) -> some View {
         HStack {
             Image(.icGenreDetails)
-            Text("Action, Drama, Romance")
+            Text(movieDetails.info.genres.joined(separator: ", "))
                 .font(Font.montserrat(weight: .semiBold, size: 16))
                 .foregroundStyle(DesignSystem.colors.secondaryGray)
         }
     }
 
-    var tabsView: some View {
+    func tabsView(movieDetails: MovieDetailsModel) -> some View {
         VStack(alignment: .leading, spacing: 25) {
             tabse
 
             switch selectedTab {
             case .about:
-                movieDetails
+                overview(movieDetails: movieDetails)
             case .review:
-                reviews
+                reviews(movieDetails: movieDetails)
             case .cast:
-                cast
+                cast(movieDetails: movieDetails)
             }
         }
         .frame(maxWidth: .infinity)
@@ -140,26 +164,28 @@ struct MovieDetailsView: View {
         }
     }
 
-    var movieDetails: some View {
-        // swiftlint: disable line_length
-        Text("From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government, undertaking high-risk black ops missions in exchange for commuted prison sentences.")
+    func overview(movieDetails: MovieDetailsModel) -> some View {
+        Text(movieDetails.info.details)
             .font(Font.montserrat(weight: .regular, size: 15))
             .foregroundStyle(DesignSystem.colors.white)
     }
 
-    var reviews: some View {
+    func reviews(movieDetails: MovieDetailsModel) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            reviewView(name: "String", rating: 6.4, text: "String")
-            reviewView(name: "String", rating: 6.4, text: "String")
-            reviewView(name: "String", rating: 6.4, text: "String")
+            ForEach(movieDetails.reviews, id: \.id) { review in
+                reviewView(avatar: review.avatar,
+                           name: review.reviewerName,
+                           rating: review.rating,
+                           text: review.review)
+            }
         }
     }
 
-    func reviewView(name: String, rating: Double, text: String) -> some View {
+    func reviewView(avatar: String, name: String, rating: Double, text: String) -> some View {
         HStack(alignment: .top) {
             VStack(spacing: 20) {
-                Image(.reviewer)
-                    .resizable()
+                RemoteImage(url: avatar)
+                    .clipShape(Circle())
                     .frame(width: 44, height: 44)
 
                 Text(rating.string())
@@ -180,11 +206,11 @@ struct MovieDetailsView: View {
         }
     }
 
-    var cast: some View {
+    func cast(movieDetails: MovieDetailsModel) -> some View {
         LazyVGrid(columns: [GridItem(), GridItem()]) {
-            castView(image: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg", name: "String")
-            castView(image: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg", name: "String")
-            castView(image: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg", name: "String")
+            ForEach(movieDetails.cast, id: \.id) { cast in
+                castView(image: cast.picture, name: cast.name)
+            }
         }
     }
 
@@ -221,5 +247,5 @@ enum MovieDetailsTab: Int, CaseIterable, Identifiable {
 }
 
 #Preview {
-    MovieDetailsView()
+    MovieDetailsView(viewModel: Container.movieDetailsViewModel(movieId: 955916))
 }

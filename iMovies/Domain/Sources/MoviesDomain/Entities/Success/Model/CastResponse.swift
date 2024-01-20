@@ -8,8 +8,8 @@
 import Foundation
 
 public struct CastResponse: Codable {
-    let id: Int?
-    let cast: [Cast]?
+    public let id: Int?
+    public let cast: [Cast]?
 
     public init(id: Int?,
                 cast: [Cast]?) {
@@ -19,10 +19,10 @@ public struct CastResponse: Codable {
 }
 
 public struct Cast: Codable {
-    let id: Int?
-    let name, originalName: String?
-    let profilePath: String?
-    let castID: Int?
+    public let id: Int?
+    public let name, originalName: String?
+    public let profilePath: String?
+    public let castID: Int?
 
     public init(id: Int?,
                 name: String?,

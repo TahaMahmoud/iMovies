@@ -19,6 +19,8 @@ final class HomeViewModel: LoadableObject {
 
     var viewDidLoad: PassthroughSubject<Void, Never> = .init()
     var reload: PassthroughSubject<Void, Never> = .init()
+    var movieDetails: PassthroughSubject<Int, Never> = .init()
+
     private var cancellables = Set<AnyCancellable>()
 
     let highlightsUseCase, popularUseCase, topRatedUseCase,
@@ -42,6 +44,7 @@ final class HomeViewModel: LoadableObject {
 
         subscribeToViewDidLoad()
         subscribeToReload()
+        subscribeToMovieDetails()
     }
 
     func load() {
@@ -64,7 +67,22 @@ final class HomeViewModel: LoadableObject {
     func subscribeToReload() {
     }
 
+    func subscribeToMovieDetails() {
+        movieDetails
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] movieId in
+                guard let self = self else { return }
+                router?.route(to: \.movieDetails, movieId)
+            }
+            .store(in: &cancellables)
+    }
+
     func getHomeSections() async {
+        await MainActor.run {
+            state = .loading
+        }
+
         async let highlights = getHighlights()
 
         async let nowPlaying = getHomeSection(category: .nowPlaying)

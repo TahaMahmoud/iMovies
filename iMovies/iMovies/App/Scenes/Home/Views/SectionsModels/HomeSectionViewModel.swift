@@ -15,8 +15,9 @@ struct HomeSectionViewModel: Identifiable {
 }
 
 struct HomeMovieItemViewModel: Identifiable {
-    var id = UUID()
+    var id: Int
     var posterURL: String
     var name: String
     var rating: Double
+    var didPressOnDetails: (Int) -> Void
 }
