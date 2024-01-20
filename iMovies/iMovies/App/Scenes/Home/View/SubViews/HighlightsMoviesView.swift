@@ -9,16 +9,8 @@ import Core
 import DesignSystem
 import SwiftUI
 
-struct HighlightsMovie: Identifiable {
-    var id = UUID()
-    var posterURL: String
-    var isAddedToWishlist: Bool
-}
-
 struct HighlightsMoviesView: View {
     var movies: [HighlightsMovie]
-    var didPressDetails: (Int) -> Void
-    var didPressWishlist: (Int) -> Void
 
     var body: some View {
         TabView {
@@ -60,17 +52,17 @@ struct HighlightsMoviesView: View {
 #Preview {
     HighlightsMoviesView(movies: [
         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
-              isAddedToWishlist: false),
+              isAddedToWishlist: false,
+              didPressDetails: { _ in},
+              didPressWishlist: { _ in}),
         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
-              isAddedToWishlist: true),
+              isAddedToWishlist: true,
+              didPressDetails: { _ in},
+              didPressWishlist: { _ in}),
         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
-              isAddedToWishlist: false),
-        .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
-              isAddedToWishlist: true),
-        .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
-              isAddedToWishlist: false)
-    ],
-    didPressDetails: { _ in },
-    didPressWishlist: { _ in })
+              isAddedToWishlist: false,
+              didPressDetails: { _ in},
+              didPressWishlist: { _ in})
+    ])
     .frame(height: 450)
 }
