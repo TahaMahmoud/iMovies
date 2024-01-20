@@ -90,6 +90,7 @@ extension MoviesDetailsResponse: DecodableFromDTO {
 
     public init(from dto: MoviesDetailsResponse.DTO) {
         self = MoviesDetailsResponse(genres: Self.map(dto: dto.genres),
+                                     backdropPath: dto.backdropPath,
                                      homepage: dto.homepage,
                                      id: dto.id,
                                      imdbID: dto.imdbID,

@@ -9,6 +9,7 @@ import Foundation
 
 public struct MoviesDetailsResponse: Codable {
     let genres: [Genre]?
+    let backdropPath: String?
     let homepage: String?
     let id: Int?
     let imdbID, originalLanguage, originalTitle, overview: String?
@@ -21,6 +22,7 @@ public struct MoviesDetailsResponse: Codable {
     let voteCount: Int?
 
     public init(genres: [Genre]?,
+                backdropPath: String?,
                 homepage: String?,
                 id: Int?,
                 imdbID: String?,
@@ -35,6 +37,7 @@ public struct MoviesDetailsResponse: Codable {
                 voteAverage: Double?,
                 voteCount: Int?) {
         self.genres = genres
+        self.backdropPath = backdropPath
         self.homepage = homepage
         self.id = id
         self.imdbID = imdbID
