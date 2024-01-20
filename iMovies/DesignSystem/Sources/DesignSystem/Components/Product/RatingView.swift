@@ -19,7 +19,7 @@ public struct RatingView: View {
             Image(.icRatingStar)
                 .resizable()
                 .frame(width: 16, height: 16)
-            Text(rating.string)
+            Text(rating.string(maximumFractionDigits: 1))
                 .font(Font.montserrat(weight: .semiBold, size: 12))
                 .foregroundStyle(DesignSystem.colors.primary)
         }

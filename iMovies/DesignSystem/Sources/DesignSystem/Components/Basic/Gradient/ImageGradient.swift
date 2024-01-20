@@ -12,7 +12,7 @@ public struct ImageGradient: View {
     public var body: some View {
         LinearGradient(
             gradient: Gradient(
-                colors: [Color.black.opacity(0.6), Color.clear]),
+                colors: [DesignSystem.colors.black.opacity(0.6), Color.clear]),
             startPoint: .bottom,
             endPoint: .top)
             .clipShape(RoundedRectangle(cornerRadius: 8))

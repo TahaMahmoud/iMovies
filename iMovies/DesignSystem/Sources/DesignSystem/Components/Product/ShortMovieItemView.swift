@@ -57,5 +57,5 @@ public struct ShortMovieItemView: View {
     ShortMovieItemView(imageURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
                        name: "Spiderman",
                        rating: 4.3)
-        .background(Color.black)
+        .background(DesignSystem.colors.black)
 }

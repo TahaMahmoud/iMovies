@@ -14,6 +14,5 @@ final class HomeCoordinator: NavigationCoordinatable {
     @Root var start = makeHome
     @ViewBuilder func makeHome() -> some View {
         HomeView(viewModel: Container.homeViewModel)
-            .navigationTitle("")
     }
 }

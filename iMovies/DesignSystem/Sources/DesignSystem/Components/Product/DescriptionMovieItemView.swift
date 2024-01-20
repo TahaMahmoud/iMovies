@@ -53,7 +53,7 @@ public struct DescriptionMovieItemView: View {
                 }
                 HStack(spacing: 4) {
                     Image(.icDate)
-                    Text(viewModel.year.string)
+                    Text(viewModel.year.string())
                         .foregroundStyle(DesignSystem.colors.white)
                         .font(Font.montserrat(weight: .regular, size: 16))
                 }
@@ -79,5 +79,5 @@ public struct DescriptionMovieItemView: View {
             genre: ["Action", "Drama"],
             year: 2019,
             duration: 139))
-        .background(Color.black)
+        .background(DesignSystem.colors.black)
 }

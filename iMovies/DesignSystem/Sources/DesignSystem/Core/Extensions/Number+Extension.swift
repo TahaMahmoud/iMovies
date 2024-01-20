@@ -8,28 +8,28 @@
 import Foundation
 
 public extension Double {
-    var string: String {
+    func string(maximumFractionDigits: Int = 1) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = maximumFractionDigits
         return formatter.string(from: NSNumber(value: self)) ?? ""
     }
 }
 
 public extension Float {
-    var string: String {
+    func string(maximumFractionDigits: Int = 1) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = maximumFractionDigits
         return formatter.string(from: NSNumber(value: self)) ?? ""
     }
 }
 
 public extension Int {
-    var string: String {
+    func string(maximumFractionDigits: Int = 1) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = maximumFractionDigits
         return formatter.string(from: NSNumber(value: self)) ?? ""
     }
 }

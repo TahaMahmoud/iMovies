@@ -18,7 +18,7 @@ final class HomeViewModel: LoadableObject {
     var router: HomeCoordinator.Router?
 
     var viewDidLoad: PassthroughSubject<Void, Never> = .init()
-    var reaload: PassthroughSubject<Void, Never> = .init()
+    var reload: PassthroughSubject<Void, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
 
     let highlightsUseCase, popularUseCase, topRatedUseCase,

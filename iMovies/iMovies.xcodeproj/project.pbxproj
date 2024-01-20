@@ -42,7 +42,6 @@
 		EE13FBB82B5BCA4A005D8A84 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FBB72B5BCA4A005D8A84 /* BannerModel.swift */; };
 		EE13FBC02B5BCCEE005D8A84 /* PublishedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FBBB2B5BCCEE005D8A84 /* PublishedObject.swift */; };
 		EE13FBC12B5BCCEE005D8A84 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FBBC2B5BCCEE005D8A84 /* LoadingState.swift */; };
-		EE13FBC22B5BCCEE005D8A84 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FBBD2B5BCCEE005D8A84 /* SpinnerView.swift */; };
 		EE13FBC32B5BCCEE005D8A84 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FBBE2B5BCCEE005D8A84 /* LoadableObject.swift */; };
 		EE13FBC42B5BCCEE005D8A84 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FBBF2B5BCCEE005D8A84 /* ContentView.swift */; };
 		EE13FBC62B5BD1C0005D8A84 /* HomeViewModel+UseCaseExecute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13FBC52B5BD1C0005D8A84 /* HomeViewModel+UseCaseExecute.swift */; };
@@ -108,7 +107,6 @@
 		EE13FBB72B5BCA4A005D8A84 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
 		EE13FBBB2B5BCCEE005D8A84 /* PublishedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishedObject.swift; sourceTree = "<group>"; };
 		EE13FBBC2B5BCCEE005D8A84 /* LoadingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
-		EE13FBBD2B5BCCEE005D8A84 /* SpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		EE13FBBE2B5BCCEE005D8A84 /* LoadableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
 		EE13FBBF2B5BCCEE005D8A84 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE13FBC52B5BD1C0005D8A84 /* HomeViewModel+UseCaseExecute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel+UseCaseExecute.swift"; sourceTree = "<group>"; };
@@ -439,7 +437,6 @@
 			children = (
 				EE13FBBB2B5BCCEE005D8A84 /* PublishedObject.swift */,
 				EE13FBBC2B5BCCEE005D8A84 /* LoadingState.swift */,
-				EE13FBBD2B5BCCEE005D8A84 /* SpinnerView.swift */,
 				EE13FBBE2B5BCCEE005D8A84 /* LoadableObject.swift */,
 				EE13FBBF2B5BCCEE005D8A84 /* ContentView.swift */,
 			);
@@ -686,7 +683,6 @@
 				EE13FBB42B5BC8AE005D8A84 /* HomeSectionViewModel.swift in Sources */,
 				EE13FB862B5ACA66005D8A84 /* DIContainer+Networking.swift in Sources */,
 				EE13FB9D2B5BC0F1005D8A84 /* MainTabCoordinator.swift in Sources */,
-				EE13FBC22B5BCCEE005D8A84 /* SpinnerView.swift in Sources */,
 				EE13FBC12B5BCCEE005D8A84 /* LoadingState.swift in Sources */,
 				EE13FB802B5AC971005D8A84 /* AuthManager.swift in Sources */,
 				EE13FBB62B5BC9C3005D8A84 /* HighlightsMovie.swift in Sources */,

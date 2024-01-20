@@ -45,7 +45,6 @@ struct HighlightsMoviesView: View {
         }
         .foregroundStyle(.white)
         .tabViewStyle(.page)
-        .background(.black)
     }
 }
 

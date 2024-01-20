@@ -43,5 +43,5 @@ struct BannerView: View {
                                 title: "Black Friday is here!",
                                 description: "Lorem ipsum dolor sit amet",
                                 detailsPressed: {}))
-    .background(Color.black)
+    .background(DesignSystem.colors.black)
 }

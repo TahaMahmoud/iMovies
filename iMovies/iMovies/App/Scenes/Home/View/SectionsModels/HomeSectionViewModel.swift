@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct HomeSectionViewModel {
+struct HomeSectionViewModel: Identifiable {
+    var id = UUID()
     var category: MovieCategory
     var moviesList: [HomeMovieItemViewModel]
     var seeMorePressed: (MovieCategory) -> Void

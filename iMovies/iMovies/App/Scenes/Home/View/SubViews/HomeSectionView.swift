@@ -65,7 +65,7 @@ struct HomeSectionView: View {
 
                           ]) { _ in
           })
-                    .background(Color.black)
+                    .background(DesignSystem.colors.black)
 }
 
 #Preview {
@@ -89,6 +89,5 @@ struct HomeSectionView: View {
 
                                      ]) { _ in
                      })
-    .background(Color.black)
-
+    .background(DesignSystem.colors.black)
 }

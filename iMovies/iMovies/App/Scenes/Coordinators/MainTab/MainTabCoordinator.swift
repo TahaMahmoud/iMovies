@@ -27,7 +27,8 @@ final class MainTabCoordinator: TabCoordinatable {
                         set: { self.child.activeTab = $0 }
                     )
                 )
-                .frame(height: 76)
+                .frame(height: 70)
+                .background(DesignSystem.colors.black)
             }
 
         }

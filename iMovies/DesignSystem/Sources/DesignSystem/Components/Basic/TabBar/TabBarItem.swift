@@ -28,7 +28,6 @@ public struct TabItemView: View {
 
     public var body: some View {
         VStack(spacing: 4) {
-            Spacer()
             Image(isActive ? activeIcon : icon)
                 .resizable()
                 .renderingMode(.original)

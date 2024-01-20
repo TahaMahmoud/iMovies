@@ -6,17 +6,15 @@
 //
 
 import SwiftUI
-import DesignSystem
 
 public struct SpinnerView: View {
-    // MARK: - Properties
     @State private var degree: Int = 270
     @State private var spinnerLength = 0.6
     public init(degree: Int = 270, spinnerLength: Double = 0.6) {
         self.degree = degree
         self.spinnerLength = spinnerLength
     }
-    // MARK: - Body
+
     public var body: some View {
         Circle()
             .trim(from: 0.0, to: spinnerLength)
@@ -48,6 +46,7 @@ public struct SpinnerView: View {
             }
     }
 }
+
 #Preview {
     SpinnerView()
 }

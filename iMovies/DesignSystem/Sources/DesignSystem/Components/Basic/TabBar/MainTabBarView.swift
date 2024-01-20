@@ -38,10 +38,8 @@ public struct MainTabBarView: View {
                                 ),
                                 animation: animation
                             )
-                            .contentShape(Rectangle())
                         }
                     )
-                    .padding(.horizontal, 10)
                     .buttonStyle(.plain)
                 }
             }
@@ -49,6 +47,5 @@ public struct MainTabBarView: View {
             .padding(.bottom, 20)
         }
         .animation(.default, value: activeTabIndex)
-        .background(Color.black)
     }
 }

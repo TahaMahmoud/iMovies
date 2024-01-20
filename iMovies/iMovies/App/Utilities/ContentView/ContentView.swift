@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import DesignSystem
 
 struct ContentView<Source: LoadableObject,
                     LoadingView: View,
@@ -38,12 +39,17 @@ struct ContentView<Source: LoadableObject,
             Color.clear.onAppear(perform: source.load)
         case .loading:
             loadingContent()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(DesignSystem.colors.black)
         case .failed:
             failureContent()
+                .background(DesignSystem.colors.black)
         case .loaded(let output):
             content(output)
+                .background(DesignSystem.colors.black)
         case .empty:
             emptyContent()
+                .background(DesignSystem.colors.black)
         }
     }
 }
