@@ -8,9 +8,9 @@
 import Foundation
 
 public struct BannerResponse: Codable {
-    let title: String?
-    let subTitle: String?
-    let image: String?
+    public let title: String?
+    public let subTitle: String?
+    public let image: String?
 
     public init(title: String?,
                 subTitle: String?,

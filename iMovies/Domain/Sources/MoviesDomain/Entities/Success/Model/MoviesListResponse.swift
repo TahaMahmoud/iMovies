@@ -8,9 +8,9 @@
 import Foundation
 
 public struct MoviesListResponse: Codable {
-    let page: Int?
-    let results: [Movie]?
-    let totalPages, totalResults: Int?
+    public let page: Int?
+    public let results: [Movie]?
+    public let totalPages, totalResults: Int?
 
     public init(page: Int?,
                 results: [Movie]?,
@@ -24,14 +24,14 @@ public struct MoviesListResponse: Codable {
 }
 
 public struct Movie: Codable {
-    let genreIDS: [Int]?
-    let id: Int?
-    let originalLanguage: String?
-    let originalTitle, overview: String?
-    let posterPath, releaseDate, title: String?
-    let video: Bool?
-    let voteAverage: Double?
-    let voteCount: Int?
+    public let genreIDS: [Int]?
+    public let id: Int?
+    public let originalLanguage: String?
+    public let originalTitle, overview: String?
+    public let posterPath, releaseDate, title: String?
+    public let video: Bool?
+    public let voteAverage: Double?
+    public let voteCount: Int?
 
     public init(genreIDS: [Int]?,
                 id: Int?,

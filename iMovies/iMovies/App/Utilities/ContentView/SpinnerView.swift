@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 public struct SpinnerView: View {
     // MARK: - Properties

@@ -10,13 +10,18 @@ import CoreData
 import DesignSystem
 
 struct HomeView: View {
+    @State var viewModel: HomeViewModel
+
     var body: some View {
         VStack {
-            Text("Home")
+
+        }
+        .onAppear {
+            viewModel.viewDidLoad.send()
         }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: Container.homeViewModel)
 }

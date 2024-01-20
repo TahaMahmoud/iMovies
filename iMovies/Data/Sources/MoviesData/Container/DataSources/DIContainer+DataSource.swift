@@ -14,6 +14,10 @@ public extension DIContainer {
         return RemoteMoviesDataSource(networkingManger: networkConfig.networkManager)
     }
 
+    static var remoteBannerDataSource: RemoteBannerDataSourceProtocol {
+        return RemoteBannerDataSource(networkingManger: networkConfig.networkManager)
+    }
+
     static var userDefaultsManager: DataPersistenceManagerProtocol {
         return DataPersistenceManager()
     }

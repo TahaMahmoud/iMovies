@@ -14,6 +14,10 @@ public extension DIContainer {
         return MoviesRepo(remoteDataSource: remoteMoviesDataSource)
     }
 
+    static var bannerRepo: BannerRepoProtocol {
+        return BannerRepo(remoteDataSource: remoteBannerDataSource)
+    }
+
     static var wishListRepo: WishListRepoProtocol {
         return WishListRepo(localDataSource: localWishListDataSource)
     }
