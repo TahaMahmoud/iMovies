@@ -21,7 +21,6 @@ public struct RemoteImage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .background(.clear)
-
             } else if phase.error != nil {
                 Image(systemName: "exclamationmark.triangle")
                     .resizable()

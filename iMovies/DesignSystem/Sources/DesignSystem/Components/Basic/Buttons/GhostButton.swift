@@ -27,7 +27,7 @@ public struct GhostButton: View {
                 icon
                 Text(title ?? "")
             }
-            .frame(minHeight: 48)
+            .frame(minHeight: 36)
             .foregroundStyle(DesignSystem.colors.primary)
             .font(Font.montserrat(weight: .semiBold, size: 16))
             .clipShape(RoundedRectangle(cornerRadius: 8))

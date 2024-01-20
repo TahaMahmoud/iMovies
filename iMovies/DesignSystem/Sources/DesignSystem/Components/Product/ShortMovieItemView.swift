@@ -24,7 +24,7 @@ public struct ShortMovieItemView: View {
         ZStack(alignment: .bottom) {
             moviePoster
                 .frame(width: 120, height: 200)
-            linearGradient
+            ImageGradient()
             movieInfo
         }
         .frame(width: 120, height: 200)
@@ -32,15 +32,6 @@ public struct ShortMovieItemView: View {
 
     var moviePoster: some View {
         RemoteImage(url: imageURL)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-    }
-
-    var linearGradient: some View {
-        LinearGradient(
-            gradient: Gradient(
-                colors: [Color.black.opacity(0.6), Color.clear]),
-            startPoint: .bottom,
-            endPoint: .top)
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 
