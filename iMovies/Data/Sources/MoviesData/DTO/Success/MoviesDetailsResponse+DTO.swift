@@ -89,27 +89,16 @@ extension MoviesDetailsResponse: DecodableFromDTO {
     }
 
     public init(from dto: MoviesDetailsResponse.DTO) {
-        self = MoviesDetailsResponse(adult: dto.adult,
-                                     backdropPath: dto.backdropPath,
-                                     belongsToCollection: dto.belongsToCollection,
-                                     budget: dto.budget,
-                                     genres: Self.map(dto: dto.genres),
+        self = MoviesDetailsResponse(genres: Self.map(dto: dto.genres),
                                      homepage: dto.homepage,
                                      id: dto.id,
                                      imdbID: dto.imdbID,
                                      originalLanguage: dto.originalLanguage,
                                      originalTitle: dto.originalTitle,
                                      overview: dto.overview,
-                                     popularity: dto.popularity,
                                      posterPath: dto.posterPath,
-                                     productionCompanies: Self.map(dto: dto.productionCompanies),
-                                     productionCountries: Self.map(dto: dto.productionCountries),
                                      releaseDate: dto.releaseDate,
-                                     revenue: dto.revenue,
                                      runtime: dto.runtime,
-                                     spokenLanguages: Self.map(dto: dto.spokenLanguages),
-                                     status: dto.status,
-                                     tagline: dto.tagline,
                                      title: dto.title,
                                      video: dto.video,
                                      voteAverage: dto.voteAverage,
@@ -120,33 +109,6 @@ extension MoviesDetailsResponse: DecodableFromDTO {
         guard let dto = dto else { return [] }
         return dto.map {
             Genre(id: $0.id, name: $0.name)
-        }
-    }
-
-    private static func map(dto: [ProductionCompanyDTO]?) -> [ProductionCompany]? {
-        guard let dto = dto else { return [] }
-        return dto.map {
-            ProductionCompany(id: $0.id,
-                              logoPath: $0.logoPath,
-                              name: $0.name,
-                              originCountry: $0.originCountry)
-        }
-    }
-
-    private static func map(dto: [ProductionCountryDTO]?) -> [ProductionCountry]? {
-        guard let dto = dto else { return [] }
-        return dto.map {
-            ProductionCountry(id: $0.id,
-                              name: $0.name)
-        }
-    }
-
-    private static func map(dto: [SpokenLanguageDTO]?) -> [SpokenLanguage]? {
-        guard let dto = dto else { return [] }
-        return dto.map {
-            SpokenLanguage(englishName: $0.englishName,
-                           id: $0.id,
-                           name: $0.name)
         }
     }
 }

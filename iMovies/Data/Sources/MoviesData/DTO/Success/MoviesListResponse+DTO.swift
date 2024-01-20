@@ -61,14 +61,11 @@ extension MoviesListResponse: DecodableFromDTO {
     private static func map(dto: [MovieDTO]?) -> [Movie] {
         guard let dto = dto else { return [] }
         return dto.map {
-            Movie(adult: $0.adult,
-                  backdropPath: $0.backdropPath,
-                  genreIDS: $0.genreIDS,
+            Movie(genreIDS: $0.genreIDS,
                   id: $0.id,
                   originalLanguage: $0.originalLanguage,
                   originalTitle: $0.originalTitle,
                   overview: $0.overview,
-                  popularity: $0.popularity,
                   posterPath: $0.posterPath,
                   releaseDate: $0.releaseDate,
                   title: $0.title,

@@ -44,27 +44,17 @@ extension CastResponse: DecodableFromDTO {
 
     public init(from dto: CastResponse.DTO) {
         self = CastResponse(id: dto.id,
-                            cast: Self.map(dto: dto.cast),
-                            crew: Self.map(dto: dto.crew))
+                            cast: Self.map(dto: dto.cast))
     }
 
     private static func map(dto: [CastDTO]?) -> [Cast] {
         guard let dto = dto else { return [] }
         return dto.map {
-            Cast(adult: $0.adult,
-                 gender: $0.gender,
-                 id: $0.id,
-                 knownForDepartment: $0.knownForDepartment,
+            Cast(id: $0.id,
                  name: $0.name,
                  originalName: $0.originalName,
-                 popularity: $0.popularity,
                  profilePath: $0.profilePath,
-                 castID: $0.castID,
-                 character: $0.character,
-                 creditID: $0.creditID,
-                 order: $0.order,
-                 department: $0.department,
-                 job: $0.job)
+                 castID: $0.castID)
         }
     }
 }
