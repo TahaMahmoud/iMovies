@@ -10,7 +10,8 @@ import MoviesDomain
 import Networking
 
 public protocol RemoteMoviesDataSourceProtocol {
-    func getHighlights() async -> Result<MoviesListResponse,
+    func getHighlights(_ input: GetMoviesRepoInput
+    ) async -> Result<MoviesListResponse,
         MoviesError>
     func getNowPlaying(_ input: GetMoviesRepoInput
     ) async -> Result<MoviesListResponse,
@@ -45,7 +46,9 @@ public struct RemoteMoviesDataSource: RemoteMoviesDataSourceProtocol {
         self.networkingManger = networkingManger
     }
 
-    public func getHighlights() async -> Result<MoviesListResponse, MoviesError> {
+    public func getHighlights(
+        _ input: MoviesDomain.GetMoviesRepoInput
+    ) async -> Result<MoviesListResponse, MoviesError> {
         let endpoint = MoviesEndpoint.highlights
         let result: Result<MoviesListResponse.DTO, NetworkRequestError<MoviesError.DTO>>
         result = await networkingManger.executeRequest(endpoint,

@@ -7,14 +7,7 @@
 
 import Foundation
 
-public protocol GetTopRatedUseCaseProtocol {
-    func execute(
-        _ input: GetMoviesUseCaseInputProtocol
-    ) async -> Result<MoviesListResponse,
-        MoviesError>
-}
-
-public struct GetTopRatedUseCase: GetTopRatedUseCaseProtocol {
+public struct GetTopRatedUseCase: GetMoviesBaseUseCaseProtocol {
     private let repo: MoviesRepoProtocol
 
     public init(repo: MoviesRepoProtocol) {

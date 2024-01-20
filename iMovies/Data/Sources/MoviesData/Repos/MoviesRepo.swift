@@ -16,9 +16,9 @@ public struct MoviesRepo: MoviesRepoProtocol {
         self.remoteDataSource = remoteDataSource
     }
 
-    public func getHighlights() async -> Result<MoviesListResponse,
+    public func getHighlights(_ input: GetMoviesRepoInput) async -> Result<MoviesListResponse,
         MoviesError> {
-        await remoteDataSource.getHighlights()
+        await remoteDataSource.getHighlights(input)
     }
 
     public func getNowPlaying(_ input: GetMoviesRepoInput) async -> Result<MoviesListResponse,

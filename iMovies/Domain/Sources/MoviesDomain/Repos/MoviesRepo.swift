@@ -12,7 +12,8 @@ public typealias GetCastRepoInput = GetCastUseCaseInputProtocol
 public typealias GetDetailsRepoInput = GetDetailsUseCaseInputProtocol
 
 public protocol MoviesRepoProtocol {
-    func getHighlights() async -> Result<MoviesListResponse,
+    func getHighlights(_ input: GetMoviesRepoInput
+    ) async -> Result<MoviesListResponse,
         MoviesError>
     func getNowPlaying(_ input: GetMoviesRepoInput
     ) async -> Result<MoviesListResponse,

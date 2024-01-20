@@ -7,19 +7,14 @@
 
 import Foundation
 
-public protocol GetHighlightsUseCaseProtocol {
-    func execute() async -> Result<MoviesListResponse, MoviesError>
-}
-
-public struct GetHighlightsUseCase: GetHighlightsUseCaseProtocol {
+public struct GetHighlightsUseCase: GetMoviesBaseUseCaseProtocol {
     private let repo: MoviesRepoProtocol
 
     public init(repo: MoviesRepoProtocol) {
         self.repo = repo
     }
 
-    public func execute() async -> Result<MoviesListResponse,
-                                          MoviesError> {
-        await repo.getHighlights()
+    public func execute(_ input: GetMoviesUseCaseInputProtocol) async -> Result<MoviesListResponse, MoviesError> {
+        await repo.getHighlights(input)
     }
 }
