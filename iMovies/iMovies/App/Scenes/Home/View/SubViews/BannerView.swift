@@ -41,7 +41,7 @@ struct BannerView: View {
 #Preview {
     BannerView(viewModel: .init(image: "https://i.ibb.co/2F9m0Qk/banner.png",
                                 title: "Black Friday is here!",
-                                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra sociis  nibh iul",
+                                description: "Lorem ipsum dolor sit amet",
                                 detailsPressed: {}))
     .background(Color.black)
 }
