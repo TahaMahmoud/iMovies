@@ -8,41 +8,47 @@
 import SwiftUI
 import DesignSystem
 
-enum TabBarItems: Int, CaseIterable {
+enum TabItem: Int, CaseIterable, Identifiable, TabBarViewItem {
+    var id: Int { rawValue }
+
     case home = 0
-    case search
-    case wishlist
+    case search = 1
+    case wishlist = 2
 
-    var title: String {
+    var icon: String {
         switch self {
         case .home:
-            return "Home"
+            "ic_tab_home"
         case .search:
-            return "Search"
+            "ic_tab_search"
         case .wishlist:
-            return "Wishlist"
+            "ic_tab_wishlist"
         }
     }
 
-    var iconName: String {
+    var activeIcon: String {
         switch self {
         case .home:
-            return "ic_tab_home"
+            "ic_tab_home_selected"
         case .search:
-            return "ic_tab_search"
+            "ic_tab_search_selected"
         case .wishlist:
-            return "ic_tab_wishlist"
+            "ic_tab_wishlist_selected"
         }
     }
 
-    var iconNameSelected: String {
+    var text: String {
         switch self {
         case .home:
-            return "ic_tab_home_selected"
+            "Home"
         case .search:
-            return "ic_tab_search_selected"
+            "Search"
         case .wishlist:
-            return "ic_tab_wishlist_selected"
+            "Wishlist"
         }
+    }
+
+    var customAction: (() -> Void)? {
+        nil
     }
 }

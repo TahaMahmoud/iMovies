@@ -15,7 +15,7 @@ struct IMoviesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            MainCoordinator().view()
         }
     }
 }
