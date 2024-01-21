@@ -123,10 +123,10 @@ final class MovieDetailsViewModel: LoadableObject {
         let input = WishListItem(movieId: movieId,
                                  title: movieDetails?.title ?? "",
                                  voteAverage: movieDetails?.voteAverage ?? 0,
-                                 genres: (movieDetails?.genres ?? []).map { $0.id ?? 0 } ,
+                                 genres: (movieDetails?.genres ?? []).map { $0.id ?? 0 },
                                  releaseDate: movieDetails?.releaseDate ?? "",
                                  poster: movieDetails?.posterPath ?? "")
-        await addToWishListUseCase.execute(input)
+        _ = await addToWishListUseCase.execute(input)
         await MainActor.run {
             isInWishlist = true
         }
@@ -134,7 +134,7 @@ final class MovieDetailsViewModel: LoadableObject {
 
     func removeFromWishList() async {
         let input = RemoveFromWishListUseCaseInput(movieId: movieId)
-        await removeFromWishlistUseCase.execute(input)
+        _ = await removeFromWishlistUseCase.execute(input)
         await MainActor.run {
             isInWishlist = false
         }

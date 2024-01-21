@@ -37,7 +37,8 @@ extension MovieDetailsViewModel {
                          genres: (movie.genres ?? []).map {
                              $0.name ?? ""
                          },
-                         details: movie.overview ?? "")
+                         details: movie.overview ?? "",
+                         url: movie.homepage ?? "")
         case .failure:
             return .init(cover: "",
                          name: "",
@@ -45,7 +46,8 @@ extension MovieDetailsViewModel {
                          year: "",
                          duration: 0,
                          genres: [],
-                         details: "")
+                         details: "",
+                         url: "")
         }
     }
 

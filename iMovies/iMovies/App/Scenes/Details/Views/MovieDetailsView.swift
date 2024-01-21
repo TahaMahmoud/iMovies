@@ -7,6 +7,7 @@
 
 import DesignSystem
 import SwiftUI
+import UIKit
 
 struct MovieDetailsView: View {
     @ObservedObject var viewModel: MovieDetailsViewModel
@@ -84,7 +85,12 @@ struct MovieDetailsView: View {
 
                 Spacer()
 
-                Button(action: {}) {
+                Button(action: {
+                    shareSheet(items: ["""
+                    Check out this amazing movie,(\(movieDetails.info.name)),
+                    \(movieDetails.info.url)
+                    """])
+                }) {
                     Image(.icShare)
                 }
 
@@ -104,6 +110,14 @@ struct MovieDetailsView: View {
                 Spacer()
             }
         }
+    }
+
+    private func shareSheet(items: [Any]) {
+        let activityViewController = UIActivityViewController(
+            activityItems: items, applicationActivities: nil)
+
+        UIApplication.shared.windows.first?.rootViewController?.present(
+            activityViewController, animated: true, completion: nil)
     }
 
     func quickInfo(movieDetails: MovieDetailsModel) -> some View {

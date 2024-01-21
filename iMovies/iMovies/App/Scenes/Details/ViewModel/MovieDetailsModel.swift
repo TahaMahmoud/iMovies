@@ -21,6 +21,7 @@ struct MovieInfoModel {
     var duration: Int
     var genres: [String]
     var details: String
+    var url: String
 }
 
 struct MovieReviewModel: Identifiable {
