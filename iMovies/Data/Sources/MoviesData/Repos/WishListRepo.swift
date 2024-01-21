@@ -17,14 +17,18 @@ public struct WishListRepo: WishListRepoProtocol {
     }
 
     public func get() async -> Result<[WishListItemProtocol], MoviesError> {
-        .success([])
+        await localDataSource.get()
     }
 
     public func add(_ input: WishListItemProtocol) async -> Bool {
-        true
+        await localDataSource.add(input)
     }
 
     public func remove(_ input: Int) async -> Bool {
-        true
+        await localDataSource.remove(input)
+    }
+
+    public func isInWishList(_ input: Int) async -> Bool {
+        await localDataSource.isInWishlist(input)
     }
 }

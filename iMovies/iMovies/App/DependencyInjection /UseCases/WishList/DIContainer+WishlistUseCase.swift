@@ -19,7 +19,11 @@ extension Container {
         return RemoveFromWishListUseCase(repo: DIContainer.wishListRepo)
     }
 
-    static var getWishlist: GetWishListUseCaseProtocol {
+    static var getWishlistUseCase: GetWishListUseCaseProtocol {
         return GetWishListUseCase(repo: DIContainer.wishListRepo)
+    }
+
+    static var isInWishlistUseCase: IsInWishListUseCaseProtocol {
+        return IsInWishListUseCase(repo: DIContainer.wishListRepo)
     }
 }

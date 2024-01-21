@@ -14,6 +14,7 @@ public protocol LocalWishListDataSourceProtocol {
     func get() async -> Result<[WishListItemProtocol], MoviesError>
     func add(_ input: WishListItemProtocol) async -> Bool
     func remove(_ input: Int) async -> Bool
+    func isInWishlist(_ input: Int) async -> Bool
 }
 
 public struct LocalWishListDataSource: LocalWishListDataSourceProtocol {
@@ -38,6 +39,11 @@ public struct LocalWishListDataSource: LocalWishListDataSourceProtocol {
                              poster: item.poster)
             }
         )
+    }
+
+    public func isInWishlist(_ input: Int) async -> Bool {
+        let items = getWishlistItems()
+        return items.contains { $0.movieId == input }
     }
 
     public func add(_ input: WishListItemProtocol) async -> Bool {
