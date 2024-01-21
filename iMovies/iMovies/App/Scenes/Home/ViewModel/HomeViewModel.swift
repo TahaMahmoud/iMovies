@@ -63,6 +63,7 @@ final class HomeViewModel: LoadableObject {
 
     func subscribeToViewDidLoad() {
         viewDidLoad
+            .prefix(1)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in

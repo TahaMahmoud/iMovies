@@ -7,6 +7,7 @@
 
 import Foundation
 import Core
+import SwiftUI
 
 struct HighlightsMovie: Identifiable {
     var id = UUID()

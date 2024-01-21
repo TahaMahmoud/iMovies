@@ -34,6 +34,8 @@ final class CategoryViewModel: LoadableObject {
     let popularUseCase, topRatedUseCase,
         nowPlayingUseCase, upcommingUseCase: any GetMoviesBaseUseCaseProtocol
 
+    private var isLoaded: Bool = false
+
     init(category: MovieCategory,
          popularUseCase: any GetMoviesBaseUseCaseProtocol,
          topRatedUseCase: any GetMoviesBaseUseCaseProtocol,
@@ -104,6 +106,7 @@ final class CategoryViewModel: LoadableObject {
         await MainActor.run {
             map(moviesResponse: result)
         }
+        isLoaded = true
     }
 
     func map(moviesResponse: Result<MoviesListResponse, MoviesError>) {
