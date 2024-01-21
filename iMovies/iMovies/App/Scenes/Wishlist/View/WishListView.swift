@@ -5,8 +5,8 @@
 //  Created by Taha Mahmoud on 19/01/2024.
 //
 
-import SwiftUI
 import DesignSystem
+import SwiftUI
 
 struct WishListView: View {
     @ObservedObject var viewModel: WishlistViewModel
@@ -52,8 +52,8 @@ struct WishListView: View {
     }
 
     func moviesView(movies: [MovieItemViewModel]) -> some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack(alignment: .leading) {
+        NavigationStack {
+            List {
                 ForEach(Array(movies.enumerated()), id: \.element.id) { index, movie in
                     DescriptionMovieItemView(viewModel: DescriptionMovieItemViewModel(
                         posterURL: movie.poster,
@@ -65,9 +65,15 @@ struct WishListView: View {
                     .onTapGesture {
                         viewModel.movieDetails.send(index)
                     }
+                    .listRowBackground(DesignSystem.colors.black)
+                }
+                .onDelete { indexSet in
+                    viewModel.removeMovie.send(indexSet.first ?? 0)
                 }
             }
+            .background(DesignSystem.colors.black)
         }
+        .listStyle(PlainListStyle())
     }
 }
 
