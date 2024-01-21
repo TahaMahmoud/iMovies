@@ -11,8 +11,8 @@ public class DataPersistenceManager: DataPersistenceManagerProtocol {
     public static let shared = DataPersistenceManager()
     var userDefaultsStorage: DataPersistenceToolsProtocol
 
-    public init(userDefaultsStorage: DataPersistenceToolsProtocol = UserDefaultsManager()) {
-        self.userDefaultsStorage = userDefaultsStorage
+    public init() {
+        self.userDefaultsStorage = UserDefaultsManager.shared
     }
 
     public func save<T: Cachable>(data: T, forKey key: String, using type: DataPersistenceType) {

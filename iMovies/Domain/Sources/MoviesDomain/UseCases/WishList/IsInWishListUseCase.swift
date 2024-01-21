@@ -35,6 +35,6 @@ public struct IsInWishListUseCase: IsInWishListUseCaseProtocol {
     public func execute(
         _ input: IsInWishListUseCaseInputProtocol
     ) async -> Bool {
-        await repo.remove(input.movieId)
+        await repo.isInWishList(input.movieId)
     }
 }

@@ -59,7 +59,7 @@ public struct LocalWishListDataSource: LocalWishListDataSourceProtocol {
                                     releaseDate: input.releaseDate,
                                     poster: input.poster)
             items.append(item)
-            updateWishlistItems(items: items)
+            addItems(items: items)
             return true
         }
     }
@@ -74,6 +74,12 @@ public struct LocalWishListDataSource: LocalWishListDataSourceProtocol {
             updateWishlistItems(items: updatedItems)
             return true
         }
+    }
+
+    private func addItems(items: [WishListItem]) {
+        dataManager.save(data: items,
+                         forKey: wishlistKey,
+                         using: .userDefaults)
     }
 
     private func getWishlistItems() -> [WishListItem] {
