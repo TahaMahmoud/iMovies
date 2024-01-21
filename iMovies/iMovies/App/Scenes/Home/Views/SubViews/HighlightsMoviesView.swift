@@ -29,13 +29,13 @@ struct HighlightsMoviesView: View {
                             if movie.isAddedToWishlist {
                                 DangorButton(icon: Image(systemName: "trash"),
                                              title: "Remove",
-                                             action: {})
+                                             action: movie.didPressWishlist)
                             } else {
                                 SecondaryButton(icon: Image(systemName: "plus"),
                                                 title: "Wishlist",
-                                                action: {})
+                                                action: movie.didPressWishlist)
                             }
-                            PrimaryButton(title: "Details", action: {})
+                            PrimaryButton(title: "Details", action: movie.didPressDetails)
                         }
                         .padding(.horizontal, 24)
                         .padding(.bottom, 50)
@@ -52,16 +52,16 @@ struct HighlightsMoviesView: View {
     HighlightsMoviesView(movies: [
         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
               isAddedToWishlist: false,
-              didPressDetails: { _ in},
-              didPressWishlist: { _ in}),
+              didPressDetails: {},
+              didPressWishlist: {}),
         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
               isAddedToWishlist: true,
-              didPressDetails: { _ in},
-              didPressWishlist: { _ in}),
+              didPressDetails: {},
+              didPressWishlist: {}),
         .init(posterURL: "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_FMjpg_UX1000_.jpg",
               isAddedToWishlist: false,
-              didPressDetails: { _ in},
-              didPressWishlist: { _ in})
+              didPressDetails: {},
+              didPressWishlist: {})
     ])
     .frame(height: 450)
 }

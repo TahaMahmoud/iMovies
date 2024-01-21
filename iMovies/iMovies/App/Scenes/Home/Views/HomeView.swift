@@ -23,6 +23,7 @@ struct HomeView: View {
                     if !homeSections.highlights.isEmpty {
                         HighlightsMoviesView(movies: homeSections.highlights)
                             .frame(height: 450)
+                            .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
                     }
 
                     ForEach(homeSections.sections, id: \.id) { section in

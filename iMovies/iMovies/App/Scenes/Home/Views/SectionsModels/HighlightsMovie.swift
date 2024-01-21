@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import Core
 
 struct HighlightsMovie: Identifiable {
     var id = UUID()
     var posterURL: String
     var isAddedToWishlist: Bool
-    var didPressDetails: (Int) -> Void
-    var didPressWishlist: (Int) -> Void
+    var didPressDetails: Action
+    var didPressWishlist: Action
 }

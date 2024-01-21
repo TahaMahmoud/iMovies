@@ -69,6 +69,7 @@ struct MovieDetailsView: View {
             .padding(.top, 60)
 
             RemoteImage(url: movieDetails.info.cover)
+                .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
         }
     }
 

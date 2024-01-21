@@ -108,12 +108,16 @@ final class CategoryViewModel: LoadableObject {
 
     func map(moviesResponse: Result<MoviesListResponse, MoviesError>) {
         switch moviesResponse {
-        case let .success(movies):
-            guard let movies = movies.results,
+        case let .success(response):
+            guard let movies = response.results,
                   !movies.isEmpty else {
                 state = .empty
                 return
             }
+
+            totalPages = response.totalPages ?? 1
+            currentPage = response.page ?? 1
+
             self.movies.append(contentsOf: movies.map {
                 MovieItemViewModel(id: $0.id ?? 0,
                                    name: $0.title ?? "",
@@ -131,6 +135,8 @@ final class CategoryViewModel: LoadableObject {
     }
 
     func subscribeToReload() {
+        movies.removeAll()
+        getMovies.send()
     }
 
     func subscribeToMovieDetails() {
@@ -143,7 +149,6 @@ final class CategoryViewModel: LoadableObject {
                 self.router?.route(to: \.movieDetails, movieId)
             }
             .store(in: &cancellables)
-
     }
 }
 

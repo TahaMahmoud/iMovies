@@ -73,14 +73,13 @@ struct CategoryView: View {
                         viewModel.movieDetails.send(index)
                     }
                 }
+                if !viewModel.isListFullLoaded {
+                    activityIndicator
+                }
             }
-
-            if !viewModel.isListFullLoaded {
-                activityIndicator
+            .refreshable {
+                viewModel.reload.send()
             }
-        }
-        .refreshable {
-            viewModel.reload.send()
         }
     }
 
@@ -88,6 +87,7 @@ struct CategoryView: View {
         HStack {
             Spacer()
             SpinnerView()
+                .frame(width: 44, height: 44)
                 .onAppear {
                     viewModel.didFinishScroll()
                 }

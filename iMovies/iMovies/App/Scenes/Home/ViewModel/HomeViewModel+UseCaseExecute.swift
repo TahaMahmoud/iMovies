@@ -16,7 +16,7 @@ extension HomeViewModel {
         let result = await highlightsUseCase.execute(input)
 
         switch result {
-        case .success(let movies):
+        case let .success(movies):
             return Array(map(response: movies).shuffled().prefix(5))
         case .failure:
             return []
@@ -40,7 +40,7 @@ extension HomeViewModel {
         let result = await useCase.execute(input)
 
         switch result {
-        case .success(let movies):
+        case let .success(movies):
             return map(category: category, response: movies)
         case .failure:
             return HomeSectionViewModel(category: category,
@@ -52,7 +52,7 @@ extension HomeViewModel {
     func getBanner() async -> BannerModel {
         let result = await bannerUseCase.execute()
         switch result {
-        case .success(let banner):
+        case let .success(banner):
             return map(bannerResponse: banner)
         case .failure:
             return BannerModel(image: "",
@@ -66,14 +66,21 @@ extension HomeViewModel {
 extension HomeViewModel {
     func map(response: MoviesListResponse) -> [HighlightsMovie] {
         guard let movies = response.results else { return [] }
-        return movies.map {
-            HighlightsMovie(
+        var mappedMovies: [HighlightsMovie] = []
+        for movie in movies {
+            mappedMovies.append(HighlightsMovie(
                 posterURL: MoviePosterURLBuilder.getFullPosterURL(
-                path: $0.posterPath ?? ""),
-            isAddedToWishlist: false,
-            didPressDetails: { _ in },
-            didPressWishlist: { _ in })
+                    path: movie.posterPath ?? ""),
+                isAddedToWishlist: false,
+                didPressDetails: { [weak self] in
+                    guard let self = self else { return }
+                    let movieId = movie.id ?? 0
+                    self.router?.route(to: \.movieDetails, movieId)
+                },
+                didPressWishlist: {})
+            )
         }
+        return mappedMovies
     }
 
     func map(category: MovieCategory,
@@ -89,7 +96,7 @@ extension HomeViewModel {
             moviesList: movies.shuffled().prefix(5).map {
                 HomeMovieItemViewModel(id: $0.id ?? 0,
                                        posterURL: MoviePosterURLBuilder.getFullPosterURL(
-                    path: $0.posterPath ?? ""),
+                                           path: $0.posterPath ?? ""),
                                        name: $0.title ?? "",
                                        rating: $0.voteAverage ?? 0) { movieId in
                     self.movieDetails.send(movieId)
