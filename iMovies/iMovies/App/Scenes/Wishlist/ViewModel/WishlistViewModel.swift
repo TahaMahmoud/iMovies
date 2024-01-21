@@ -123,7 +123,11 @@ final class WishlistViewModel: LoadableObject {
         if result {
             movies = movies.filter { $0.id != movieId }
             await MainActor.run {
-                state = .loaded(self.movies)
+                if movies.isEmpty {
+                    state = .empty
+                } else {
+                    state = .loaded(self.movies)
+                }
             }
         }
     }
