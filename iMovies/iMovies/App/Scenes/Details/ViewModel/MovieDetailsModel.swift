@@ -16,7 +16,6 @@ struct MovieDetailsModel {
 struct MovieInfoModel {
     var cover: String
     var name: String
-    var isInWishlist: Bool
     var rating: Double
     var year: String
     var duration: Int

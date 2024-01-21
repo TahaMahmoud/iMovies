@@ -88,8 +88,10 @@ struct MovieDetailsView: View {
                     Image(.icShare)
                 }
 
-                Button(action: {}) {
-                    Image(movieDetails.info.isInWishlist ? .icSaved : .icSave)
+                Button(action: {
+                    viewModel.wishlist.send()
+                }) {
+                    Image(viewModel.isInWishlist ? .icSaved : .icSave)
                 }
             }
 

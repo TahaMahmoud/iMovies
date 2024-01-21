@@ -28,9 +28,9 @@ extension MovieDetailsViewModel {
     func map(movieDetails: Result<MoviesDetailsResponse, MoviesError>) -> MovieInfoModel {
         switch movieDetails {
         case let .success(movie):
+            self.movieDetails = movie
             return .init(cover: MoviePosterURLBuilder.getFullPosterURL(path: movie.backdropPath ?? ""),
                          name: movie.title ?? "",
-                         isInWishlist: Bool.random(),
                          rating: movie.voteAverage ?? 0,
                          year: movie.releaseDate ?? "",
                          duration: movie.runtime ?? 0,
@@ -41,7 +41,6 @@ extension MovieDetailsViewModel {
         case .failure:
             return .init(cover: "",
                          name: "",
-                         isInWishlist: Bool.random(),
                          rating: 0,
                          year: "",
                          duration: 0,
