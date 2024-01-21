@@ -42,7 +42,7 @@ final class SearchViewModel: LoadableObject {
     }
 
     func load() {
-        state = .loaded([])
+        state = .empty
     }
 
     func subscribeToSearchPressed() {

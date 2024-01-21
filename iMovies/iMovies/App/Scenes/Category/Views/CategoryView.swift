@@ -20,11 +20,12 @@ struct CategoryView: View {
                 Spacer()
             }
         } failureContent: {
-            emptyState
-        } emptyContent: {
             failureState
+                .background(DesignSystem.colors.black)
+        } emptyContent: {
+            emptyState
+                .background(DesignSystem.colors.black)
         }
-        .background(DesignSystem.colors.black)
         .onAppear {
             viewModel.getMovies.send()
         }
@@ -32,14 +33,26 @@ struct CategoryView: View {
 
     var emptyState: some View {
         VStack {
+            Spacer()
+            EmptyView(icon: Image(.icEmptyContent),
+                      title: "we are sorry, we can not find any movies :(",
+                      titleColor: DesignSystem.colors.white,
+                      subTitle: "Find your movie by Type title, categories, years, etc",
+                      subTitleColor: DesignSystem.colors.secondaryGray)
+            Spacer()
         }
-        .background(DesignSystem.colors.black)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     var failureState: some View {
         VStack {
+            EmptyView(icon: Image(.icEmptyContent),
+                      title: "we are sorry, we can not find any movies :(",
+                      titleColor: DesignSystem.colors.white,
+                      subTitle: "Find your movie by Type title, categories, years, etc",
+                      subTitleColor: DesignSystem.colors.secondaryGray)
         }
-        .background(DesignSystem.colors.black)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     var header: some View {

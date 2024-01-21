@@ -42,9 +42,11 @@ struct HomeView: View {
             }
             .ignoresSafeArea()
         } failureContent: {
-            emptyState
-        } emptyContent: {
             failureState
+                .background(DesignSystem.colors.black)
+        } emptyContent: {
+            emptyState
+                .background(DesignSystem.colors.black)
         }
         .onAppear {
             viewModel.viewDidLoad.send()
@@ -56,14 +58,28 @@ struct HomeView: View {
 
     var emptyState: some View {
         VStack {
+            Spacer()
+            EmptyView(icon: Image(.icEmptyContent),
+                      title: "There is no movie yet!",
+                      titleColor: DesignSystem.colors.white,
+                      subTitle: "Start exploring movies and add them to your wishlist",
+                      subTitleColor: DesignSystem.colors.secondaryGray)
+            Spacer()
         }
-        .background(DesignSystem.colors.black)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     var failureState: some View {
         VStack {
+            Spacer()
+            EmptyView(icon: Image(.icEmptyContent),
+                      title: "There is no movie yet!",
+                      titleColor: DesignSystem.colors.white,
+                      subTitle: "Start exploring movies and add them to your wishlist",
+                      subTitleColor: DesignSystem.colors.secondaryGray)
+            Spacer()
         }
-        .background(DesignSystem.colors.black)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

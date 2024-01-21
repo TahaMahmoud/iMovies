@@ -21,25 +21,51 @@ struct SearchView: View {
                     .padding(.top, 15)
                 Spacer()
             }
-            .padding()
+            .padding(.horizontal)
             .background(DesignSystem.colors.black)
         } failureContent: {
-            emptyState
-        } emptyContent: {
             failureState
+                .background(DesignSystem.colors.black)
+        } emptyContent: {
+            emptyState
+                .background(DesignSystem.colors.black)
         }
     }
 
     var emptyState: some View {
         VStack {
+            header
+            search
+                .padding(.top, 20)
+
+            EmptyView(icon: Image(.icEmptySearch),
+                      title: "we are sorry, we can not find the movie :(",
+                      titleColor: DesignSystem.colors.white,
+                      subTitle: "Find your movie by Type title, categories, years, etc ",
+                      subTitleColor: DesignSystem.colors.secondaryGray)
+            Spacer()
+
         }
-        .background(DesignSystem.colors.black)
+        .padding(.horizontal)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     var failureState: some View {
         VStack {
+            header
+            search
+                .padding(.top, 20)
+
+            EmptyView(icon: Image(.icEmptySearch),
+                      title: "we are sorry, we can not find any movies :(",
+                      titleColor: DesignSystem.colors.white,
+                      subTitle: "Find your movie by Type title, categories, years, etc",
+                      subTitleColor: DesignSystem.colors.secondaryGray)
+
+            Spacer()
         }
-        .background(DesignSystem.colors.black)
+        .padding(.horizontal)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     var header: some View {

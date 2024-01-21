@@ -36,9 +36,11 @@ struct MovieDetailsView: View {
             .background(DesignSystem.colors.black)
             .ignoresSafeArea()
         } failureContent: {
-            emptyState
+            failureState
+                .background(DesignSystem.colors.black)
         } emptyContent: {
             failureState
+                .background(DesignSystem.colors.black)
         }
         .onAppear {
             viewModel.viewDidLoad.send()
@@ -47,14 +49,28 @@ struct MovieDetailsView: View {
 
     var emptyState: some View {
         VStack {
+            Spacer()
+            EmptyView(icon: Image(.icEmptyContent),
+                      title: "we are sorry, we can not find any movies :(",
+                      titleColor: DesignSystem.colors.white,
+                      subTitle: "Find your movie by Type title, categories, years, etc",
+                      subTitleColor: DesignSystem.colors.secondaryGray)
+            Spacer()
         }
-        .background(DesignSystem.colors.black)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     var failureState: some View {
         VStack {
+            Spacer()
+            EmptyView(icon: Image(.icEmptyContent),
+                      title: "we are sorry, we can not find any movies :(",
+                      titleColor: DesignSystem.colors.white,
+                      subTitle: "Find your movie by Type title, categories, years, etc",
+                      subTitleColor: DesignSystem.colors.secondaryGray)
+            Spacer()
         }
-        .background(DesignSystem.colors.black)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     func header(movieDetails: MovieDetailsModel) -> some View {

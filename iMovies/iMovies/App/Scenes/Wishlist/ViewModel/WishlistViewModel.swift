@@ -71,17 +71,21 @@ final class WishlistViewModel: LoadableObject {
     func map(wishList: Result<[WishListItemProtocol], MoviesError>) {
         switch wishList {
         case let .success(response):
-            movies.append(contentsOf: response.map {
-                MovieItemViewModel(id: $0.movieId,
-                                   name: $0.title,
-                                   rate: $0.voteAverage,
-                                   genres: $0.genres.map { id in
-                                       MovieGenre(rawValue: id)?.name ?? ""
-                                   },
-                                   year: $0.releaseDate,
-                                   poster: MoviePosterURLBuilder.getFullPosterURL(path: $0.poster))
-            })
-            state = .loaded(movies)
+            if response.isEmpty {
+                state = .empty
+            } else {
+                movies.append(contentsOf: response.map {
+                    MovieItemViewModel(id: $0.movieId,
+                                       name: $0.title,
+                                       rate: $0.voteAverage,
+                                       genres: $0.genres.map { id in
+                                           MovieGenre(rawValue: id)?.name ?? ""
+                                       },
+                                       year: $0.releaseDate,
+                                       poster: MoviePosterURLBuilder.getFullPosterURL(path: $0.poster))
+                })
+                state = .loaded(movies)
+            }
         case .failure:
             state = .failed(MoviesError.unknown)
         }
