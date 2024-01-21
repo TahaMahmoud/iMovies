@@ -69,6 +69,7 @@
 		EEEEB3A92B5D060800E9999B /* MovieItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEEB3A82B5D060800E9999B /* MovieItemViewModel.swift */; };
 		EEEEB3AD2B5D0A0900E9999B /* MovieGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEEB3AC2B5D0A0900E9999B /* MovieGenres.swift */; };
 		EEEEB3AF2B5D2D5100E9999B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEEB3AE2B5D2D5100E9999B /* SearchViewModel.swift */; };
+		EEEEB3B12B5D418700E9999B /* DIContainer+WishlistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEEB3B02B5D418700E9999B /* DIContainer+WishlistUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		EEEEB3A82B5D060800E9999B /* MovieItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemViewModel.swift; sourceTree = "<group>"; };
 		EEEEB3AC2B5D0A0900E9999B /* MovieGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenres.swift; sourceTree = "<group>"; };
 		EEEEB3AE2B5D2D5100E9999B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		EEEEB3B02B5D418700E9999B /* DIContainer+WishlistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DIContainer+WishlistUseCase.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 		EE13FB672B5AB55B005D8A84 /* WishList */ = {
 			isa = PBXGroup;
 			children = (
+				EEEEB3B02B5D418700E9999B /* DIContainer+WishlistUseCase.swift */,
 			);
 			path = WishList;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				EE13FB8A2B5ACBF4005D8A84 /* DesignSystemConfigurator.swift in Sources */,
 				EEEEB3AD2B5D0A0900E9999B /* MovieGenres.swift in Sources */,
 				EE13FB7C2B5AC718005D8A84 /* AppConfig.swift in Sources */,
+				EEEEB3B12B5D418700E9999B /* DIContainer+WishlistUseCase.swift in Sources */,
 				EE13FBA72B5BC43C005D8A84 /* SearchCoordinator.swift in Sources */,
 				EE13FB882B5ACB39005D8A84 /* LoggerManager.swift in Sources */,
 				EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */,

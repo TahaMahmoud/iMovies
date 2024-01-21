@@ -14,6 +14,10 @@ let package = Package(
             name: "MoviesDomain",
             targets: ["MoviesDomain"])
     ],
+    dependencies: [
+        .package(name: "Core",
+                 path: "../Core")
+    ],
     targets: [
         .target(
             name: "CoreDomain"
@@ -21,7 +25,8 @@ let package = Package(
         .target(
             name: "MoviesDomain",
             dependencies: [
-                .target(name: "CoreDomain")
+                .target(name: "CoreDomain"),
+                .product(name: "DataPersistence", package: "Core")
             ]
         ),
         .testTarget(
