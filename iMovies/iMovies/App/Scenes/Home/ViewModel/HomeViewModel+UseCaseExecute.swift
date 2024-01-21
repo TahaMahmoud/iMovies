@@ -94,8 +94,8 @@ extension HomeViewModel {
                                        rating: $0.voteAverage ?? 0) { movieId in
                     self.movieDetails.send(movieId)
                 }
-            }) { category in
-                print("See more pressed on \(category)")
+            }) { [weak self] category in
+                self?.router?.route(to: \.category, category)
             }
     }
 

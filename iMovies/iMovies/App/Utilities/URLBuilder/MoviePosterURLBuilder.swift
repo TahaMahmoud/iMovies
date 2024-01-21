@@ -8,7 +8,7 @@
 import Foundation
 
 struct MoviePosterURLBuilder {
-    static func getFullPosterURL(path: String) -> String {
-        "https://image.tmdb.org/t/p/w500\(path))"
+    static func getFullPosterURL(path: String?) -> String {
+        "https://image.tmdb.org/t/p/w500\(path ?? ""))"
     }
 }

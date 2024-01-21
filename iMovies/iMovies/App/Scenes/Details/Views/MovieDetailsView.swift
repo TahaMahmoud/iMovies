@@ -11,34 +11,28 @@ import SwiftUI
 struct MovieDetailsView: View {
     @State var viewModel: MovieDetailsViewModel
     @State var selectedTab: MovieDetailsTab = .about
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
         ContentView(source: viewModel) { movieDetails in
             ScrollView(.vertical, showsIndicators: false) {
-                ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    header(movieDetails: movieDetails)
+
+                    Spacer()
+
                     VStack {
-                        GeometryReader { geometry in
-                            header(movieDetails: movieDetails,
-                                   geometry: geometry)
-                        }
-                        .frame(height: 0.3 * UIScreen.main.bounds.height)
+                        movieName(movieDetails: movieDetails)
+                            .padding()
 
-                        Spacer()
-
-                        VStack {
-                            movieName(movieDetails: movieDetails)
-                                .padding()
-
-                            quickInfo(movieDetails: movieDetails)
-                            genres(movieDetails: movieDetails)
-                            tabsView(movieDetails: movieDetails)
-                                .padding()
-                        }
+                        quickInfo(movieDetails: movieDetails)
+                        genres(movieDetails: movieDetails)
+                        tabsView(movieDetails: movieDetails)
+                            .padding()
                     }
                 }
-                .ignoresSafeArea()
-                .background(DesignSystem.colors.black)
             }
+            .background(DesignSystem.colors.black)
             .ignoresSafeArea()
         } failureContent: {
             emptyState
@@ -60,10 +54,22 @@ struct MovieDetailsView: View {
         }
     }
 
-    func header(movieDetails: MovieDetailsModel,
-                geometry: GeometryProxy) -> some View {
-        RemoteImage(url: movieDetails.info.cover)
-            .frame(width: geometry.size.width, height: geometry.size.height)
+    func header(movieDetails: MovieDetailsModel) -> some View {
+        VStack {
+            HStack {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(DesignSystem.colors.white)
+                }
+                Spacer()
+            }
+            .padding()
+            .padding(.top, 60)
+
+            RemoteImage(url: movieDetails.info.cover)
+        }
     }
 
     func movieName(movieDetails: MovieDetailsModel) -> some View {

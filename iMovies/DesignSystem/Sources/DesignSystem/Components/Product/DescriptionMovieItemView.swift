@@ -12,8 +12,19 @@ public struct DescriptionMovieItemViewModel {
     public var movieName: String
     public var rating: Double
     public var genre: [String]
-    public var year: Int
-    public var duration: Int
+    public var year: String
+
+    public init(posterURL: String,
+                movieName: String,
+                rating: Double,
+                genre: [String],
+                year: String) {
+        self.posterURL = posterURL
+        self.movieName = movieName
+        self.rating = rating
+        self.genre = genre
+        self.year = year
+    }
 }
 
 public struct DescriptionMovieItemView: View {
@@ -53,13 +64,7 @@ public struct DescriptionMovieItemView: View {
                 }
                 HStack(spacing: 4) {
                     Image(.icDate)
-                    Text(viewModel.year.string())
-                        .foregroundStyle(DesignSystem.colors.white)
-                        .font(Font.montserrat(weight: .regular, size: 16))
-                }
-                HStack(spacing: 4) {
-                    Image(.icDuration)
-                    Text("\(viewModel.duration) minutes")
+                    Text(viewModel.year)
                         .foregroundStyle(DesignSystem.colors.white)
                         .font(Font.montserrat(weight: .regular, size: 16))
                 }
@@ -77,7 +82,6 @@ public struct DescriptionMovieItemView: View {
             movieName: "Spiderman Spiderman Spiderman",
             rating: 9.5,
             genre: ["Action", "Drama"],
-            year: 2019,
-            duration: 139))
+            year: "2019"))
         .background(DesignSystem.colors.black)
 }
