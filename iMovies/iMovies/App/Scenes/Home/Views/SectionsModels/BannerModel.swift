@@ -12,5 +12,4 @@ struct BannerModel {
     var image: String
     var title: String
     var description: String
-    var detailsPressed: Action
 }

@@ -11,13 +11,16 @@ import SwiftUI
 
 struct BannerView: View {
     var viewModel: BannerModel
+    var action: Action
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             bannerImageView
             bannerInfo
                 .padding(.top, 16)
-            PrimaryButton(title: "Check Details") {}
+            PrimaryButton(title: "Check Details") {
+                action()
+            }
         }
     }
 
@@ -41,7 +44,8 @@ struct BannerView: View {
 #Preview {
     BannerView(viewModel: .init(image: "https://i.ibb.co/2F9m0Qk/banner.png",
                                 title: "Black Friday is here!",
-                                description: "Lorem ipsum dolor sit amet",
-                                detailsPressed: {}))
-    .background(DesignSystem.colors.black)
+                                description: "Lorem ipsum dolor sit amet"),
+               action: {
+               })
+               .background(DesignSystem.colors.black)
 }

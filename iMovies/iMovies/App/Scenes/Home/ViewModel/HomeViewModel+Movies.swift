@@ -57,8 +57,7 @@ extension HomeViewModel {
         case .failure:
             return BannerModel(image: "",
                                title: "",
-                               description: "",
-                               detailsPressed: {})
+                               description: "")
         }
     }
 }
@@ -113,7 +112,6 @@ extension HomeViewModel {
     func map(bannerResponse: BannerResponse) -> BannerModel {
         return BannerModel(image: bannerResponse.image ?? "",
                            title: bannerResponse.title ?? "",
-                           description: bannerResponse.subTitle ?? "",
-                           detailsPressed: {})
+                           description: bannerResponse.subTitle ?? "")
     }
 }

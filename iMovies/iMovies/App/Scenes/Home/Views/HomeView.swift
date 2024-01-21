@@ -34,9 +34,11 @@ struct HomeView: View {
                     if !homeSections.banner.image.isEmpty ||
                         !homeSections.banner.title.isEmpty ||
                         !homeSections.banner.description.isEmpty {
-                        BannerView(viewModel: homeSections.banner)
-                            .padding(.horizontal, 24)
-                            .padding(.top, 20)
+                        BannerView(viewModel: homeSections.banner) {
+                            URLUtility.openURL("https://www.themoviedb.org/")
+                        }
+                        .padding(.horizontal, 24)
+                        .padding(.top, 20)
                     }
                 }
             }
