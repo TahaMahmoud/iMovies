@@ -10,7 +10,7 @@ import DesignSystem
 import SwiftUI
 
 struct HomeView: View {
-    @State var viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
 
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -57,11 +57,13 @@ struct HomeView: View {
     var emptyState: some View {
         VStack {
         }
+        .background(DesignSystem.colors.black)
     }
 
     var failureState: some View {
         VStack {
         }
+        .background(DesignSystem.colors.black)
     }
 }
 

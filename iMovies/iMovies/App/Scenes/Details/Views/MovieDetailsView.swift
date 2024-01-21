@@ -9,7 +9,7 @@ import DesignSystem
 import SwiftUI
 
 struct MovieDetailsView: View {
-    @State var viewModel: MovieDetailsViewModel
+    @ObservedObject var viewModel: MovieDetailsViewModel
     @State var selectedTab: MovieDetailsTab = .about
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -47,11 +47,13 @@ struct MovieDetailsView: View {
     var emptyState: some View {
         VStack {
         }
+        .background(DesignSystem.colors.black)
     }
 
     var failureState: some View {
         VStack {
         }
+        .background(DesignSystem.colors.black)
     }
 
     func header(movieDetails: MovieDetailsModel) -> some View {

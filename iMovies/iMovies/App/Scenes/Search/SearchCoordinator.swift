@@ -13,7 +13,12 @@ final class SearchCoordinator: NavigationCoordinatable {
 
     @Root var start = makeSearch
     @ViewBuilder func makeSearch() -> some View {
-        SearchView()
+        SearchView(viewModel: Container.searchViewModel)
             .navigationTitle("")
+    }
+
+    @Route(.push) var movieDetails = makePDP
+    @ViewBuilder private func makePDP(movieId: Int) -> some View {
+        MovieDetailsCoordinator(movieId: movieId).view()
     }
 }

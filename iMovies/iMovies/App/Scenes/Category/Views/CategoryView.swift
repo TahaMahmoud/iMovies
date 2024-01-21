@@ -9,7 +9,7 @@ import DesignSystem
 import SwiftUI
 
 struct CategoryView: View {
-    var viewModel: CategoryViewModel
+    @ObservedObject var viewModel: CategoryViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
@@ -33,11 +33,13 @@ struct CategoryView: View {
     var emptyState: some View {
         VStack {
         }
+        .background(DesignSystem.colors.black)
     }
 
     var failureState: some View {
         VStack {
         }
+        .background(DesignSystem.colors.black)
     }
 
     var header: some View {
