@@ -23,7 +23,6 @@ public struct ShortMovieItemView: View {
     public var body: some View {
         ZStack(alignment: .bottom) {
             moviePoster
-                .frame(width: 120, height: 200)
             ImageGradient()
             movieInfo
         }
