@@ -26,6 +26,9 @@ final class HomeViewModel: LoadableObject {
     let highlightsUseCase, popularUseCase, topRatedUseCase,
         nowPlayingUseCase, upcommingUseCase: any GetMoviesBaseUseCaseProtocol
     let bannerUseCase: any GetBannerUseCaseProtocol
+    let isInWislistUseCase: any IsInWishListUseCaseProtocol
+    let addToWishlistUseCase: any AddToWishListUseCaseProtocol
+    let removeFromWishlistUseCase: any RemoveFromWishListUseCaseProtocol
 
     init(
         highlightsUseCase: any GetMoviesBaseUseCaseProtocol,
@@ -33,14 +36,21 @@ final class HomeViewModel: LoadableObject {
         topRatedUseCase: any GetMoviesBaseUseCaseProtocol,
         nowPlayingUseCase: any GetMoviesBaseUseCaseProtocol,
         upcommingUseCase: any GetMoviesBaseUseCaseProtocol,
-        bannerUseCase: any GetBannerUseCaseProtocol
-    ) {
+        bannerUseCase: any GetBannerUseCaseProtocol,
+        isInWislistUseCase: any IsInWishListUseCaseProtocol,
+        addToWishlistUseCase: any AddToWishListUseCaseProtocol,
+        removeFromWishlistUseCase: any RemoveFromWishListUseCaseProtocol) {
         self.highlightsUseCase = highlightsUseCase
         self.popularUseCase = popularUseCase
         self.topRatedUseCase = topRatedUseCase
         self.nowPlayingUseCase = nowPlayingUseCase
         self.upcommingUseCase = upcommingUseCase
+
         self.bannerUseCase = bannerUseCase
+
+        self.isInWislistUseCase = isInWislistUseCase
+        self.addToWishlistUseCase = addToWishlistUseCase
+        self.removeFromWishlistUseCase = removeFromWishlistUseCase
 
         subscribeToViewDidLoad()
         subscribeToReload()
@@ -111,6 +121,9 @@ extension Container {
             topRatedUseCase: Container.getTopRatedUseCase,
             nowPlayingUseCase: Container.getNowPlayingUseCase,
             upcommingUseCase: Container.getUpcomingUseCase,
-            bannerUseCase: Container.getBannerUseCase)
+            bannerUseCase: Container.getBannerUseCase,
+            isInWislistUseCase: Container.isInWishlistUseCase,
+            addToWishlistUseCase: Container.addToWishlistUseCase,
+            removeFromWishlistUseCase: Container.removeFromWishlistUseCase)
     }
 }

@@ -12,7 +12,7 @@ public protocol WishListItemProtocol {
     var movieId: Int { get set }
     var title: String { get set }
     var voteAverage: Double { get set }
-    var genres: [Genre] { get set }
+    var genres: [Int] { get set }
     var releaseDate: String { get set }
     var poster: String { get set }
 }
@@ -21,14 +21,14 @@ public struct WishListItem: WishListItemProtocol, Cachable {
     public var movieId: Int
     public var title: String
     public var voteAverage: Double
-    public var genres: [Genre]
+    public var genres: [Int]
     public var releaseDate: String
     public var poster: String
 
     public init(movieId: Int,
                 title: String,
                 voteAverage: Double,
-                genres: [Genre],
+                genres: [Int],
                 releaseDate: String,
                 poster: String) {
         self.movieId = movieId

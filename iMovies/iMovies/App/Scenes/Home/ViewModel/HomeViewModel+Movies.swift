@@ -17,7 +17,7 @@ extension HomeViewModel {
 
         switch result {
         case let .success(movies):
-            return Array(map(response: movies).shuffled().prefix(5))
+            return await Array(map(response: movies).shuffled().prefix(5))
         case .failure:
             return []
         }
@@ -64,20 +64,24 @@ extension HomeViewModel {
 }
 
 extension HomeViewModel {
-    func map(response: MoviesListResponse) -> [HighlightsMovie] {
+    func map(response: MoviesListResponse) async -> [HighlightsMovie] {
         guard let movies = response.results else { return [] }
         var mappedMovies: [HighlightsMovie] = []
         for movie in movies {
             mappedMovies.append(HighlightsMovie(
                 posterURL: MoviePosterURLBuilder.getFullPosterURL(
                     path: movie.posterPath ?? ""),
-                isAddedToWishlist: false,
+                isAddedToWishlist: await isInWishList(movie: movie),
                 didPressDetails: { [weak self] in
                     guard let self = self else { return }
                     let movieId = movie.id ?? 0
                     self.router?.route(to: \.movieDetails, movieId)
                 },
-                didPressWishlist: {})
+                didPressWishlist: {
+                    Task { [weak self] in
+                        await self?.addToWishList(movie: movie)
+                    }
+                })
             )
         }
         return mappedMovies

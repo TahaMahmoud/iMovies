@@ -11,7 +11,7 @@ public protocol IsInWishListUseCaseInputProtocol {
     var movieId: Int { get set }
 }
 
-public struct RIsInWishListUseCaseInput: RemoveFromWishListUseCaseInputProtocol {
+public struct IsInWishListUseCaseInput: IsInWishListUseCaseInputProtocol {
     public var movieId: Int
 
     public init(movieId: Int) {
