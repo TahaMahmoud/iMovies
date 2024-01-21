@@ -87,7 +87,7 @@ struct MovieDetailsView: View {
 
                 Button(action: {
                     shareSheet(items: ["""
-                    Check out this amazing movie,(\(movieDetails.info.name)),
+                    Check out this amazing movie,\n(\(movieDetails.info.name))
                     \(movieDetails.info.url)
                     """])
                 }) {
