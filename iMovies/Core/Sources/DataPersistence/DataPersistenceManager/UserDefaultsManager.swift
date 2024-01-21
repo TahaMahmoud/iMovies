@@ -8,6 +8,7 @@
 import Foundation
 
 public class UserDefaultsManager: DataPersistenceToolsProtocol {
+    public static let shared = UserDefaultsManager()
 
     public init() {}
 

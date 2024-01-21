@@ -18,11 +18,15 @@ public extension DIContainer {
         return RemoteBannerDataSource(networkingManger: networkConfig.networkManager)
     }
 
-    static var userDefaultsManager: DataPersistenceManagerProtocol {
-        return DataPersistenceManager()
+    static var userDefaultsManager: DataPersistenceToolsProtocol {
+        return UserDefaultsManager.shared
+    }
+
+    static var dataManager: DataPersistenceManager {
+        return DataPersistenceManager.shared
     }
 
     static var localWishListDataSource: LocalWishListDataSourceProtocol {
-        return LocalWishListDataSource(dataManager: userDefaultsManager)
+        return LocalWishListDataSource(dataManager: dataManager)
     }
 }

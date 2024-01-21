@@ -17,7 +17,7 @@ internal extension HomeViewModel {
     }
 
     func addToWishList(movie: Movie) async -> Bool {
-        if await isInWishList(movie: movie) {
+        if await !isInWishList(movie: movie) {
             let input = WishListItem(movieId: movie.id ?? 0,
                                      title: movie.title ?? "",
                                      voteAverage: movie.voteAverage ?? 0,

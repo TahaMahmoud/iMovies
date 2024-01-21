@@ -71,6 +71,7 @@
 		EEEEB3AF2B5D2D5100E9999B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEEB3AE2B5D2D5100E9999B /* SearchViewModel.swift */; };
 		EEEEB3B12B5D418700E9999B /* DIContainer+WishlistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEEB3B02B5D418700E9999B /* DIContainer+WishlistUseCase.swift */; };
 		EEEEB3B32B5D452500E9999B /* HomeViewModel+Wishlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEEB3B22B5D452500E9999B /* HomeViewModel+Wishlist.swift */; };
+		EEEEB3B52B5D493A00E9999B /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEEB3B42B5D493A00E9999B /* WishlistViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		EEEEB3AE2B5D2D5100E9999B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		EEEEB3B02B5D418700E9999B /* DIContainer+WishlistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DIContainer+WishlistUseCase.swift"; sourceTree = "<group>"; };
 		EEEEB3B22B5D452500E9999B /* HomeViewModel+Wishlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel+Wishlist.swift"; sourceTree = "<group>"; };
+		EEEEB3B42B5D493A00E9999B /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +445,7 @@
 		EE13FBA92B5BC467005D8A84 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EEEEB3B42B5D493A00E9999B /* WishlistViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				EE1F843B2B5C12950022B48B /* MovieDetailsView.swift in Sources */,
 				EE13FBB82B5BCA4A005D8A84 /* BannerModel.swift in Sources */,
 				EEEEB3AF2B5D2D5100E9999B /* SearchViewModel.swift in Sources */,
+				EEEEB3B52B5D493A00E9999B /* WishlistViewModel.swift in Sources */,
 				EE13FBAB2B5BC47B005D8A84 /* WishlistCoordinator.swift in Sources */,
 				EE13FBC02B5BCCEE005D8A84 /* PublishedObject.swift in Sources */,
 				EE13FBC42B5BCCEE005D8A84 /* ContentView.swift in Sources */,

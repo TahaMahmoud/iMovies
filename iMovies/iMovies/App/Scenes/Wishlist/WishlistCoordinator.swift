@@ -13,7 +13,12 @@ final class WishlistCoordinator: NavigationCoordinatable {
 
     @Root var start = makeWishlist
     @ViewBuilder func makeWishlist() -> some View {
-        WishListView()
+        WishListView(viewModel: Container.wishListViewModel)
             .navigationTitle("")
+    }
+
+    @Route(.push) var movieDetails = makeMovieDetails
+    @ViewBuilder private func makeMovieDetails(movieId: Int) -> some View {
+        MovieDetailsCoordinator(movieId: movieId).view()
     }
 }
