@@ -226,7 +226,8 @@ struct MovieDetailsView: View {
     func reviewView(avatar: String, name: String, rating: Double, text: String) -> some View {
         HStack(alignment: .top) {
             VStack(spacing: 20) {
-                RemoteImage(url: avatar)
+                RemoteImage(url: avatar,
+                            placeholder: Image(.reviewer))
                     .clipShape(Circle())
                     .frame(width: 44, height: 44)
 
@@ -236,14 +237,16 @@ struct MovieDetailsView: View {
                     .padding(.bottom)
             }
 
-            VStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text(name)
                     .font(Font.montserrat(weight: .medium, size: 12))
                     .foregroundStyle(DesignSystem.colors.white)
+                    .multilineTextAlignment(.leading)
 
                 Text(rating.string())
                     .font(Font.montserrat(weight: .regular, size: 12))
                     .foregroundStyle(DesignSystem.colors.white)
+                    .multilineTextAlignment(.leading)
             }
         }
     }
@@ -258,7 +261,8 @@ struct MovieDetailsView: View {
 
     func castView(image: String, name: String) -> some View {
         VStack(spacing: 10) {
-            RemoteImage(url: image)
+            RemoteImage(url: image,
+                        placeholder: Image(.reviewer))
                 .clipShape(Circle())
                 .frame(width: 100, height: 100)
             Text(name)

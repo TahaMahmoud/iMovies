@@ -9,9 +9,13 @@ import SwiftUI
 
 public struct RemoteImage: View {
     public let url: String
+    public var placeholder: Image = Image(systemName: "exclamationmark.triangle")
 
-    public init(url: String) {
+    public init(url: String,
+                placeholder: Image = Image(
+                    systemName: "exclamationmark.triangle")) {
         self.url = url
+        self.placeholder = placeholder
     }
 
     public var body: some View {
@@ -22,7 +26,7 @@ public struct RemoteImage: View {
                     .aspectRatio(contentMode: .fill)
                     .background(.clear)
             } else if phase.error != nil {
-                Image(systemName: "exclamationmark.triangle")
+                placeholder
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.red)
