@@ -13,6 +13,7 @@ extension MainTabCoordinator {
     @ViewBuilder func makeEmptyTab(isActive: Bool) -> some View {
         EmptyView()
     }
+
     func makeHome() -> NavigationViewCoordinator<HomeCoordinator> {
         NavigationViewCoordinator(HomeCoordinator())
     }

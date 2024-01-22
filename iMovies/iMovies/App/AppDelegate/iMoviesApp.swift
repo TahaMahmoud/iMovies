@@ -47,6 +47,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _ = [
             DataConfigurator.shared,
             LoggerManager.shared,
+            UIInitializer.shared,
             DesignSystemConfigurator.shared
         ].map { $0.setup() }
     }

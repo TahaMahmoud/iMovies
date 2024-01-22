@@ -11,11 +11,9 @@ import DesignSystem
 
 final class MainTabCoordinator: TabCoordinatable {
     @ViewBuilder func customize(_ view: AnyView) -> some View {
-
         GeometryReader { _ in
             VStack(spacing: 0) {
                 view
-
                 MainTabBarView(
                     items: [
                         TabItem.home,
@@ -30,7 +28,6 @@ final class MainTabCoordinator: TabCoordinatable {
                 .frame(height: 70)
                 .background(DesignSystem.colors.black)
             }
-
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
     }

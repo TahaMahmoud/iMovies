@@ -53,6 +53,7 @@
 		EE1F84432B5C72E30022B48B /* MovieDetailsViewModel+UseCaseExec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1F84422B5C72E30022B48B /* MovieDetailsViewModel+UseCaseExec.swift */; };
 		EE1F84452B5C732A0022B48B /* MovieDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1F84442B5C732A0022B48B /* MovieDetailsCoordinator.swift */; };
 		EE21EDB52B5DAC71008F64F6 /* OpenURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21EDB42B5DAC71008F64F6 /* OpenURL.swift */; };
+		EE21EDB72B5E6B29008F64F6 /* UIInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21EDB62B5E6B29008F64F6 /* UIInitializer.swift */; };
 		EEB87AAB2B5977C800660603 /* iMoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAA2B5977C800660603 /* iMoviesApp.swift */; };
 		EEB87AAD2B5977C800660603 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB87AAC2B5977C800660603 /* HomeView.swift */; };
 		EEB87AB12B5977CA00660603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB87AB02B5977CA00660603 /* Assets.xcassets */; };
@@ -133,6 +134,7 @@
 		EE1F84422B5C72E30022B48B /* MovieDetailsViewModel+UseCaseExec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDetailsViewModel+UseCaseExec.swift"; sourceTree = "<group>"; };
 		EE1F84442B5C732A0022B48B /* MovieDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsCoordinator.swift; sourceTree = "<group>"; };
 		EE21EDB42B5DAC71008F64F6 /* OpenURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenURL.swift; sourceTree = "<group>"; };
+		EE21EDB62B5E6B29008F64F6 /* UIInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIInitializer.swift; sourceTree = "<group>"; };
 		EEB87AA72B5977C800660603 /* iMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB87AAA2B5977C800660603 /* iMoviesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMoviesApp.swift; sourceTree = "<group>"; };
 		EEB87AAC2B5977C800660603 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				EE13FB812B5ACA08005D8A84 /* DataConfigurator.swift */,
 				EE13FB872B5ACB39005D8A84 /* LoggerManager.swift */,
 				EE13FB892B5ACBF4005D8A84 /* DesignSystemConfigurator.swift */,
+				EE21EDB62B5E6B29008F64F6 /* UIInitializer.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				EE13FB822B5ACA08005D8A84 /* DataConfigurator.swift in Sources */,
 				EE13FB932B5AE23A005D8A84 /* HighlightsMoviesView.swift in Sources */,
 				EE13FB762B5AC5D5005D8A84 /* WishListView.swift in Sources */,
+				EE21EDB72B5E6B29008F64F6 /* UIInitializer.swift in Sources */,
 				EE13FBC92B5BDBFA005D8A84 /* MoviePosterURLBuilder.swift in Sources */,
 				EE13FBA12B5BC3EC005D8A84 /* HomeCoordinator.swift in Sources */,
 				EE13FBC32B5BCCEE005D8A84 /* LoadableObject.swift in Sources */,

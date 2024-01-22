@@ -12,7 +12,8 @@ public struct MainTabBarView: View {
     @Binding public var activeTabIndex: Int
     @Namespace var animation
 
-    public init(items: [any TabBarViewItem], activeTabIndex: Binding<Int>) {
+    public init(items: [any TabBarViewItem],
+                activeTabIndex: Binding<Int>) {
         self.items = items
         _activeTabIndex = activeTabIndex
     }
