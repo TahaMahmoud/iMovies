@@ -157,11 +157,12 @@ struct MovieDetailsView: View {
     }
 
     func genres(movieDetails: MovieDetailsModel) -> some View {
-        HStack {
+        HStack(alignment: .center) {
             Image(.icGenreDetails)
             Text(movieDetails.info.genres.joined(separator: ", "))
                 .font(Font.montserrat(weight: .semiBold, size: 16))
                 .foregroundStyle(DesignSystem.colors.secondaryGray)
+                .multilineTextAlignment(.center)
         }
     }
 

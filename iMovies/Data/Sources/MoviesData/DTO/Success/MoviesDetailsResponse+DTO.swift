@@ -13,7 +13,6 @@ extension MoviesDetailsResponse: DecodableFromDTO {
     public struct DTO: Codable {
         public let adult: Bool?
         public let backdropPath: String?
-        public let belongsToCollection: Bool?
         public let budget: Int?
         public let genres: [GenreDTO]?
         public let homepage: String?
@@ -34,7 +33,6 @@ extension MoviesDetailsResponse: DecodableFromDTO {
         enum CodingKeys: String, CodingKey {
             case adult
             case backdropPath = "backdrop_path"
-            case belongsToCollection = "belongs_to_collection"
             case budget, genres, homepage, id
             case imdbID = "imdb_id"
             case originalLanguage = "original_language"
