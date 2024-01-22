@@ -23,27 +23,15 @@ extension HomeViewModel {
         }
     }
 
-    func getHomeSection(category: MovieCategory) async -> HomeSectionViewModel {
+    func getHomeSection(homeSection: HomeViewModelSection) async -> HomeSectionViewModel {
         let input = GetMoviesUseCaseInput(page: 1)
-        var useCase: GetMoviesBaseUseCaseProtocol
-        switch category {
-        case .nowPlaying:
-            useCase = nowPlayingUseCase
-        case .popular:
-            useCase = popularUseCase
-        case .topRated:
-            useCase = topRatedUseCase
-        case .upcoming:
-            useCase = upcommingUseCase
-        }
-
-        let result = await useCase.execute(input)
+        let result = await homeSection.useCase.execute(input)
 
         switch result {
         case let .success(movies):
-            return map(category: category, response: movies)
+            return map(section: homeSection, response: movies)
         case .failure:
-            return HomeSectionViewModel(category: category,
+            return HomeSectionViewModel(category: homeSection.category,
                                         moviesList: [],
                                         seeMorePressed: { _ in })
         }
@@ -86,16 +74,16 @@ extension HomeViewModel {
         return mappedMovies
     }
 
-    func map(category: MovieCategory,
+    func map(section: HomeViewModelSection,
              response: MoviesListResponse) -> HomeSectionViewModel {
         guard let movies = response.results else {
             return HomeSectionViewModel(
-                category: category,
+                category: section.category,
                 moviesList: [],
                 seeMorePressed: { _ in })
         }
         return HomeSectionViewModel(
-            category: category,
+            category: section.category,
             moviesList: movies.shuffled().prefix(5).map {
                 HomeMovieItemViewModel(id: $0.id ?? 0,
                                        posterURL: MoviePosterURLBuilder.getFullPosterURL(
@@ -107,8 +95,7 @@ extension HomeViewModel {
             }) { [weak self] category in
                 let input = CategoryViewModelInput(
                     category: category,
-                    categoryMoviesUseCase: self?.getUseCase(
-                        category: category) ?? Container.getNowPlayingUseCase)
+                    categoryMoviesUseCase: section.useCase)
                 self?.router?.route(to: \.category, input)
             }
     }
@@ -117,18 +104,5 @@ extension HomeViewModel {
         return BannerModel(image: bannerResponse.image ?? "",
                            title: bannerResponse.title ?? "",
                            description: bannerResponse.subTitle ?? "")
-    }
-
-    func getUseCase(category: MovieCategory) -> GetMoviesBaseUseCaseProtocol {
-        switch category {
-        case .nowPlaying:
-            return nowPlayingUseCase
-        case .popular:
-            return popularUseCase
-        case .topRated:
-            return topRatedUseCase
-        case .upcoming:
-            return upcommingUseCase
-        }
     }
 }

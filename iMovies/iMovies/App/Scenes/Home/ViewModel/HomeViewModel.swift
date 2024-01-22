@@ -11,6 +11,12 @@ import MoviesDomain
 import Stinsen
 import SwiftUI
 
+struct HomeViewModelSection: Identifiable {
+    var id = UUID()
+    var category: MovieCategory
+    var useCase: any GetMoviesBaseUseCaseProtocol
+}
+
 final class HomeViewModel: LoadableObject {
     @Published var state: ViewState<HomeSectionsModel> = .loading
 
@@ -23,28 +29,24 @@ final class HomeViewModel: LoadableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
-    let highlightsUseCase, popularUseCase, topRatedUseCase,
-        nowPlayingUseCase, upcommingUseCase: any GetMoviesBaseUseCaseProtocol
+    let highlightsUseCase: any GetMoviesBaseUseCaseProtocol
+
+    let sections: [HomeViewModelSection]
+
     let bannerUseCase: any GetBannerUseCaseProtocol
+
     let isInWislistUseCase: any IsInWishListUseCaseProtocol
     let addToWishlistUseCase: any AddToWishListUseCaseProtocol
     let removeFromWishlistUseCase: any RemoveFromWishListUseCaseProtocol
 
-    init(
-        highlightsUseCase: any GetMoviesBaseUseCaseProtocol,
-        popularUseCase: any GetMoviesBaseUseCaseProtocol,
-        topRatedUseCase: any GetMoviesBaseUseCaseProtocol,
-        nowPlayingUseCase: any GetMoviesBaseUseCaseProtocol,
-        upcommingUseCase: any GetMoviesBaseUseCaseProtocol,
-        bannerUseCase: any GetBannerUseCaseProtocol,
-        isInWislistUseCase: any IsInWishListUseCaseProtocol,
-        addToWishlistUseCase: any AddToWishListUseCaseProtocol,
-        removeFromWishlistUseCase: any RemoveFromWishListUseCaseProtocol) {
+    init(highlightsUseCase: any GetMoviesBaseUseCaseProtocol,
+         sections: [HomeViewModelSection],
+         bannerUseCase: any GetBannerUseCaseProtocol,
+         isInWislistUseCase: any IsInWishListUseCaseProtocol,
+         addToWishlistUseCase: any AddToWishListUseCaseProtocol,
+         removeFromWishlistUseCase: any RemoveFromWishListUseCaseProtocol) {
         self.highlightsUseCase = highlightsUseCase
-        self.popularUseCase = popularUseCase
-        self.topRatedUseCase = topRatedUseCase
-        self.nowPlayingUseCase = nowPlayingUseCase
-        self.upcommingUseCase = upcommingUseCase
+        self.sections = sections
 
         self.bannerUseCase = bannerUseCase
 
@@ -93,18 +95,28 @@ final class HomeViewModel: LoadableObject {
             state = .loading
         }
 
+        var result: [HomeSectionViewModel] = []
         async let highlights = getHighlights()
 
-        async let nowPlaying = getHomeSection(category: .nowPlaying)
-        async let popular = getHomeSection(category: .popular)
-        async let topRated = getHomeSection(category: .topRated)
-        async let upcoming = getHomeSection(category: .upcoming)
+        await withTaskGroup(of: HomeSectionViewModel.self) { [weak self] taskGroup in
+            guard let self = self else { return }
+            for section in sections {
+                taskGroup.addTask {
+                    let homeSection = await self.getHomeSection(homeSection: section)
+                    return homeSection
+                }
+            }
+
+            for await homeSection in taskGroup {
+                result.append(homeSection)
+            }
+        }
 
         async let banner = getBanner()
 
         let homeSections = await HomeSectionsModel(
             highlights: highlights,
-            sections: [nowPlaying, popular, topRated, upcoming],
+            sections: result,
             banner: banner)
 
         await MainActor.run { [weak self] in
@@ -117,10 +129,12 @@ extension Container {
     static var homeViewModel: HomeViewModel {
         HomeViewModel(
             highlightsUseCase: Container.getHighlightsUseCase,
-            popularUseCase: Container.getPopularUseCase,
-            topRatedUseCase: Container.getTopRatedUseCase,
-            nowPlayingUseCase: Container.getNowPlayingUseCase,
-            upcommingUseCase: Container.getUpcomingUseCase,
+            sections: [
+                .init(category: .nowPlaying, useCase: Container.getNowPlayingUseCase),
+                .init(category: .popular, useCase: Container.getPopularUseCase),
+                .init(category: .topRated, useCase: Container.getTopRatedUseCase),
+                .init(category: .upcoming, useCase: Container.getUpcomingUseCase)
+            ],
             bannerUseCase: Container.getBannerUseCase,
             isInWislistUseCase: Container.isInWishlistUseCase,
             addToWishlistUseCase: Container.addToWishlistUseCase,
