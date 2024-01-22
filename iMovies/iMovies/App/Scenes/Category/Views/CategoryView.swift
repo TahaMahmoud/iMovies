@@ -112,5 +112,7 @@ struct CategoryView: View {
 }
 
 #Preview {
-    CategoryView(viewModel: Container.categoryViewModel(category: .nowPlaying))
+    CategoryView(viewModel: Container.categoryViewModel(input:
+        CategoryViewModelInput(category: .nowPlaying,
+                               categoryMoviesUseCase: Container.getNowPlayingUseCase)))
 }

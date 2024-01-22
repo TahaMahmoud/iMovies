@@ -11,6 +11,11 @@ import MoviesDomain
 import Stinsen
 import SwiftUI
 
+struct CategoryViewModelInput {
+    var category: MovieCategory
+    var categoryMoviesUseCase: any GetMoviesBaseUseCaseProtocol
+}
+
 final class CategoryViewModel: LoadableObject {
     @Published var state: ViewState<[MovieItemViewModel]> = .loading
     @Published var isListFullLoaded = false
@@ -31,21 +36,13 @@ final class CategoryViewModel: LoadableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
-    let popularUseCase, topRatedUseCase,
-        nowPlayingUseCase, upcommingUseCase: any GetMoviesBaseUseCaseProtocol
+    let categoryMoviesUseCase: any GetMoviesBaseUseCaseProtocol
 
     private var isLoaded: Bool = false
 
-    init(category: MovieCategory,
-         popularUseCase: any GetMoviesBaseUseCaseProtocol,
-         topRatedUseCase: any GetMoviesBaseUseCaseProtocol,
-         nowPlayingUseCase: any GetMoviesBaseUseCaseProtocol,
-         upcommingUseCase: any GetMoviesBaseUseCaseProtocol) {
-        self.category = category
-        self.popularUseCase = popularUseCase
-        self.topRatedUseCase = topRatedUseCase
-        self.nowPlayingUseCase = nowPlayingUseCase
-        self.upcommingUseCase = upcommingUseCase
+    init(input: CategoryViewModelInput) {
+        self.category = input.category
+        self.categoryMoviesUseCase = input.categoryMoviesUseCase
 
         subscribeToViewDidLoad()
         subscribeToReload()
@@ -89,20 +86,7 @@ final class CategoryViewModel: LoadableObject {
             state = .loading
         }
         let input = GetMoviesUseCaseInput(page: currentPage)
-        let moviesUseCase: GetMoviesBaseUseCaseProtocol
-
-        switch category {
-        case .nowPlaying:
-            moviesUseCase = nowPlayingUseCase
-        case .popular:
-            moviesUseCase = popularUseCase
-        case .topRated:
-            moviesUseCase = topRatedUseCase
-        case .upcoming:
-            moviesUseCase = upcommingUseCase
-        }
-
-        let result = await moviesUseCase.execute(input)
+        let result = await categoryMoviesUseCase.execute(input)
         await MainActor.run {
             map(moviesResponse: result)
         }
@@ -156,12 +140,7 @@ final class CategoryViewModel: LoadableObject {
 }
 
 extension Container {
-    static func categoryViewModel(category: MovieCategory) -> CategoryViewModel {
-        return CategoryViewModel(
-            category: category,
-            popularUseCase: Container.getPopularUseCase,
-            topRatedUseCase: Container.getTopRatedUseCase,
-            nowPlayingUseCase: Container.getNowPlayingUseCase,
-            upcommingUseCase: Container.getUpcomingUseCase)
+    static func categoryViewModel(input: CategoryViewModelInput) -> CategoryViewModel {
+        return CategoryViewModel(input: input)
     }
 }

@@ -105,7 +105,11 @@ extension HomeViewModel {
                     self.movieDetails.send(movieId)
                 }
             }) { [weak self] category in
-                self?.router?.route(to: \.category, category)
+                let input = CategoryViewModelInput(
+                    category: category,
+                    categoryMoviesUseCase: self?.getUseCase(
+                        category: category) ?? Container.getNowPlayingUseCase)
+                self?.router?.route(to: \.category, input)
             }
     }
 
@@ -113,5 +117,18 @@ extension HomeViewModel {
         return BannerModel(image: bannerResponse.image ?? "",
                            title: bannerResponse.title ?? "",
                            description: bannerResponse.subTitle ?? "")
+    }
+
+    func getUseCase(category: MovieCategory) -> GetMoviesBaseUseCaseProtocol {
+        switch category {
+        case .nowPlaying:
+            return nowPlayingUseCase
+        case .popular:
+            return popularUseCase
+        case .topRated:
+            return topRatedUseCase
+        case .upcoming:
+            return upcommingUseCase
+        }
     }
 }

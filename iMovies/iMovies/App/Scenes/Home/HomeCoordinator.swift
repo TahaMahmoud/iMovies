@@ -22,7 +22,7 @@ final class HomeCoordinator: NavigationCoordinatable {
     }
 
     @Route(.push) var category = makeCategory
-    @ViewBuilder private func makeCategory(category: MovieCategory) -> some View {
-        CategoryCoordinator(category: category).view()
+    @ViewBuilder private func makeCategory(input: CategoryViewModelInput) -> some View {
+        CategoryCoordinator(input: input).view()
     }
 }

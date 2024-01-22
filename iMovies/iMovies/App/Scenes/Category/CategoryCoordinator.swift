@@ -11,13 +11,13 @@ import SwiftUI
 final class CategoryCoordinator: NavigationCoordinatable {
     var stack = NavigationStack(initial: \CategoryCoordinator.start)
 
-    public init(category: MovieCategory) {
-        stack = NavigationStack(initial: \CategoryCoordinator.start, category)
+    public init(input: CategoryViewModelInput) {
+        stack = NavigationStack(initial: \CategoryCoordinator.start, input)
     }
 
     @Root var start = makeCategory
-    @ViewBuilder func makeCategory(category: MovieCategory) -> some View {
-        CategoryView(viewModel: Container.categoryViewModel(category: category))
+    @ViewBuilder func makeCategory(input: CategoryViewModelInput) -> some View {
+        CategoryView(viewModel: Container.categoryViewModel(input: input))
         .navigationBarBackButtonHidden()
     }
 
