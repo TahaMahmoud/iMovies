@@ -35,7 +35,8 @@ struct HighlightsMovieView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             GeometryReader { geometry in
-                RemoteImage(url: poster)
+                RemoteImage(url: poster,
+                            placeholder: Image(.posterPlaceholder))
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .aspectRatio(contentMode: .fill)
                 ImageGradient()

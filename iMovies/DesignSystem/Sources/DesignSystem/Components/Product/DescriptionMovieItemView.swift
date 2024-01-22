@@ -43,7 +43,8 @@ public struct DescriptionMovieItemView: View {
     }
 
     var moviePoster: some View {
-        RemoteImage(url: viewModel.posterURL)
+        RemoteImage(url: viewModel.posterURL,
+                    placeholder: Image(.posterPlaceholder))
             .frame(width: 95, height: 120)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }

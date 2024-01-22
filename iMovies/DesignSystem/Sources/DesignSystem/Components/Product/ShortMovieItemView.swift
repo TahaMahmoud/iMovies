@@ -30,7 +30,8 @@ public struct ShortMovieItemView: View {
     }
 
     var moviePoster: some View {
-        RemoteImage(url: imageURL)
+        RemoteImage(url: imageURL,
+                    placeholder: Image(.posterPlaceholder))
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 
