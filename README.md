@@ -146,7 +146,6 @@ I'll update this project with the other test cases such as Repos, DataSources, V
 - [ ] Support Dark Mode / Light Mode
 - [ ] Add UI Tests
 - [ ] Localization
-- [ ] Enhance the design system
 
 # <a name="author"></a> Author
 Created by 
