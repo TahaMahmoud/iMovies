@@ -8,6 +8,7 @@
 import CoreData
 import DesignSystem
 import SwiftUI
+import Core
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel

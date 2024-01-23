@@ -53,6 +53,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        listenForUpdates()
     }
 
     func listenForUpdates() {
