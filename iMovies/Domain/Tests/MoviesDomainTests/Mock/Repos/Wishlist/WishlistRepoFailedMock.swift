@@ -9,7 +9,7 @@ import Foundation
 @testable import CoreDomain
 @testable import MoviesDomain
 
-class WishlistRepoFailedMock: WishListRepoProtocol {
+struct WishlistRepoFailedMock: WishListRepoProtocol {
     func get() async -> Result<[WishListItemProtocol], MoviesError> {
         .failure(.unknown)
     }

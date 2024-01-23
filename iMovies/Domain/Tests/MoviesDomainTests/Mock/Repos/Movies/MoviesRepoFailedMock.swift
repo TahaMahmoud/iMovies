@@ -9,7 +9,7 @@ import Foundation
 @testable import CoreDomain
 @testable import MoviesDomain
 
-class MoviesRepoFailedMock: MoviesRepoProtocol {
+struct MoviesRepoFailedMock: MoviesRepoProtocol {
     func getHighlights(_ input: GetMoviesRepoInput) async -> Result<MoviesListResponse, MoviesError> {
         .failure(.unknown)
     }

@@ -11,7 +11,7 @@ import Foundation
 @testable import CoreDomain
 @testable import MoviesDomain
 
-class BannerRepoSuccessMock: BannerRepoProtocol {
+struct BannerRepoSuccessMock: BannerRepoProtocol {
     func get() async -> Result<BannerResponse, MoviesError> {
         .success(bannerResponseMock)
     }
