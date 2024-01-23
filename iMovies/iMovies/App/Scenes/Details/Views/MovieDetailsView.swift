@@ -79,10 +79,10 @@ struct MovieDetailsView: View {
             HStack {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
-                }) {
+                }, label: {
                     Image(systemName: "chevron.left")
                         .foregroundStyle(DesignSystem.colors.white)
-                }
+                })
                 Spacer()
             }
             .padding()
@@ -108,15 +108,15 @@ struct MovieDetailsView: View {
                     Check out this amazing movie,\n(\(movieDetails.info.name))
                     \(movieDetails.info.url)
                     """])
-                }) {
+                }, label: {
                     Image(.icShare)
-                }
+                })
 
                 Button(action: {
                     viewModel.wishlist.send()
-                }) {
+                }, label: {
                     Image(viewModel.isInWishlist ? .icSaved : .icSave)
-                }
+                })
             }
 
             HStack {
@@ -182,7 +182,7 @@ struct MovieDetailsView: View {
                 ForEach(MovieDetailsTab.allCases, id: \.id) { tab in
                     Button(action: {
                         selectedTab = tab
-                    }) {
+                    }, label: {
                         VStack(spacing: 16) {
                             Text(tab.title)
                                 .font(Font.montserrat(weight: .semiBold, size: 16))
@@ -194,7 +194,7 @@ struct MovieDetailsView: View {
                                     .foregroundStyle(DesignSystem.colors.darkGray)
                             }
                         }
-                    }
+                    })
                 }
             }
         }

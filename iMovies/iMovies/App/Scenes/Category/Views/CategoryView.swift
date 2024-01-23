@@ -59,10 +59,10 @@ struct CategoryView: View {
         HStack {
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
-            }) {
+            }, label: {
                 Image(systemName: "chevron.left")
                     .foregroundStyle(DesignSystem.colors.white)
-            }
+            })
             Spacer()
             Text(viewModel.category.title)
                 .font(Font.montserrat(weight: .semiBold, size: 20))

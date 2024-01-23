@@ -1,23 +1,60 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "600"
+ENV["FASTLANE_XCODEBUILD_SETTINGS_RETRIES"] = "8"
 
 default_platform(:ios)
+  platform :ios do
 
-platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+  desc "Run unit tests"
+  lane :tests do |options|
+    domain_tests
+    data_tests
+    if options[:clone_source_packages]
+      packages_path = "#{File.expand_path("..", Dir.pwd)}/cache/packages_cache"
+      derived_data_path = "#{File.expand_path("..", Dir.pwd)}/cache/derived_data"
+
+      scan(
+        cloned_source_packages_path: packages_path,
+        disable_package_automatic_updates: options[:disable_package_automatic_updates],
+        skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution],
+        derived_data_path: derived_data_path,
+        skip_build: options[:skip_build],
+        skip_testing: ["iMoviesUITests"],
+        xcargs: "-skipPackagePluginValidation",
+      )
+    else
+      scan(
+        disable_package_automatic_updates: options[:disable_package_automatic_updates],
+        skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution],
+        skip_testing: ["iMoviesUITests"],
+        xcargs: "-skipPackagePluginValidation",
+      )
+    end
   end
+
+  desc "Run swiftlint"
+  lane :lint do |options|
+    swiftlint(
+      mode: :lint,
+      config_file: ".swiftlint.yml",
+      output_file: "fastlane/swiftlint.result.json",
+      raise_if_swiftlint_error: true,
+      ignore_exit_status: false
+    )
+  end
+
+  #### Run domain unit testing ####
+  desc "Run domain unit testing"
+  lane :domain_tests do
+       Dir.chdir("../iMovies/Domain") do
+      sh "fastlane tests"
+    end
+    end
+    
+  #### Run data unit testing ####
+  desc "Run data unit testing"
+  lane :data_tests do
+       Dir.chdir("../iMovies/Data") do
+      sh "fastlane tests"
+    end
+    end
 end
