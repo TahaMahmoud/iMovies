@@ -55,7 +55,6 @@ final class HomeViewModel: LoadableObject {
         self.removeFromWishlistUseCase = removeFromWishlistUseCase
 
         subscribeToViewDidLoad()
-        subscribeToReload()
         subscribeToMovieDetails()
     }
 
@@ -74,9 +73,6 @@ final class HomeViewModel: LoadableObject {
                 }
             }
             .store(in: &cancellables)
-    }
-
-    func subscribeToReload() {
     }
 
     func subscribeToMovieDetails() {

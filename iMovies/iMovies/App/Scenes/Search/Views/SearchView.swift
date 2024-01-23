@@ -110,7 +110,6 @@ struct SearchView: View {
         HStack {
             Spacer()
             SpinnerView()
-                .frame(width: 44, height: 44)
                 .onAppear {
                     viewModel.didFinishScroll()
                 }

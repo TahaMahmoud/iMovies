@@ -38,8 +38,6 @@ final class CategoryViewModel: LoadableObject {
 
     let categoryMoviesUseCase: any GetMoviesBaseUseCaseProtocol
 
-    private var isLoaded: Bool = false
-
     init(input: CategoryViewModelInput) {
         self.category = input.category
         self.categoryMoviesUseCase = input.categoryMoviesUseCase
@@ -62,7 +60,7 @@ final class CategoryViewModel: LoadableObject {
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 Task {
-                    await self.getMovies()
+                    await self.getMovies(showLoading: true)
                 }
             }
             .store(in: &cancellables)
@@ -75,22 +73,25 @@ final class CategoryViewModel: LoadableObject {
 
         if currentPage < totalPages {
             currentPage += 1
-            getMovies.send()
+            Task {
+                await self.getMovies(showLoading: false)
+            }
         }
 
         isListFullLoaded = currentPage == totalPages
     }
 
-    func getMovies() async {
-        await MainActor.run {
-            state = .loading
+    func getMovies(showLoading: Bool) async {
+        if showLoading {
+            await MainActor.run {
+                state = .loading
+            }
         }
         let input = GetMoviesUseCaseInput(page: currentPage)
         let result = await categoryMoviesUseCase.execute(input)
         await MainActor.run {
             map(moviesResponse: result)
         }
-        isLoaded = true
     }
 
     func map(moviesResponse: Result<MoviesListResponse, MoviesError>) {
