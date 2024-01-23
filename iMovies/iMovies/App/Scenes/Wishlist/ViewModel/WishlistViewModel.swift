@@ -50,6 +50,7 @@ final class WishlistViewModel: LoadableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let self = self else { return }
+                self.movies.removeAll()
                 Task {
                     await self.getWishlist()
                 }
@@ -82,7 +83,7 @@ final class WishlistViewModel: LoadableObject {
                                            MovieGenre(rawValue: id)?.name ?? ""
                                        },
                                        year: $0.releaseDate,
-                                       poster: MoviePosterURLBuilder.getFullPosterURL(path: $0.poster))
+                                       poster: URLBuilder.getFullPath(path: $0.poster))
                 })
                 state = .loaded(movies)
             }

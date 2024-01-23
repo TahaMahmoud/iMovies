@@ -8,6 +8,7 @@
 import DesignSystem
 import SwiftUI
 import UIKit
+import Core
 
 struct MovieDetailsView: View {
     @ObservedObject var viewModel: MovieDetailsViewModel
@@ -103,7 +104,7 @@ struct MovieDetailsView: View {
                 Spacer()
 
                 Button(action: {
-                    shareSheet(items: ["""
+                    ShareUtility.shareSheet(items: ["""
                     Check out this amazing movie,\n(\(movieDetails.info.name))
                     \(movieDetails.info.url)
                     """])
@@ -129,14 +130,6 @@ struct MovieDetailsView: View {
         }
     }
 
-    private func shareSheet(items: [Any]) {
-        let activityViewController = UIActivityViewController(
-            activityItems: items, applicationActivities: nil)
-
-        UIApplication.shared.windows.first?.rootViewController?.present(
-            activityViewController, animated: true, completion: nil)
-    }
-
     func quickInfo(movieDetails: MovieDetailsModel) -> some View {
         HStack {
             HStack {
@@ -158,7 +151,7 @@ struct MovieDetailsView: View {
     }
 
     func genres(movieDetails: MovieDetailsModel) -> some View {
-        HStack(alignment: .center) {
+        HStack(alignment: .top) {
             Image(.icGenreDetails)
             Text(movieDetails.info.genres.joined(separator: ", "))
                 .font(Font.montserrat(weight: .semiBold, size: 16))

@@ -102,7 +102,7 @@ final class SearchViewModel: LoadableObject {
                                        MovieGenre(rawValue: id)?.name ?? ""
                                    },
                                    year: $0.releaseDate ?? "",
-                                   poster: MoviePosterURLBuilder.getFullPosterURL(path: $0.posterPath))
+                                   poster: URLBuilder.getFullPath(path: $0.posterPath))
             })
             state = .loaded(self.movies)
         case .failure:

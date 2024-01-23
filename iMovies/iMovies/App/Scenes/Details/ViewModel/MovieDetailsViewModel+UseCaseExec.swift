@@ -29,7 +29,7 @@ extension MovieDetailsViewModel {
         switch movieDetails {
         case let .success(movie):
             self.movieDetails = movie
-            return .init(cover: MoviePosterURLBuilder.getFullPosterURL(path: movie.backdropPath ?? ""),
+            return .init(cover: URLBuilder.getFullPath(path: movie.backdropPath ?? ""),
                          name: movie.title ?? "",
                          rating: movie.voteAverage ?? 0,
                          year: movie.releaseDate ?? "",
@@ -59,7 +59,7 @@ extension MovieDetailsViewModel {
                 MovieReviewModel(reviewerName: $0.authorDetails?.name ?? "",
                                  rating: $0.authorDetails?.rating ?? 0,
                                  review: $0.content ?? "",
-                                 avatar: MoviePosterURLBuilder.getFullPosterURL(
+                                 avatar: URLBuilder.getFullPath(
                                      path: $0.authorDetails?.avatarPath ?? ""))
             }
         case .failure:
@@ -73,7 +73,7 @@ extension MovieDetailsViewModel {
             guard let cast = cast.cast else { return [] }
             return cast.map {
                 MovieCastModel(name: $0.originalName ?? "",
-                               picture: MoviePosterURLBuilder.getFullPosterURL(
+                               picture: URLBuilder.getFullPath(
                                    path: $0.profilePath ?? ""))
             }
         case .failure:

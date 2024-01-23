@@ -57,7 +57,7 @@ public struct DescriptionMovieItemView: View {
                 .lineLimit(1)
             VStack(alignment: .leading, spacing: 4) {
                 RatingView(rating: viewModel.rating)
-                HStack(spacing: 4) {
+                HStack(alignment: .top, spacing: 4) {
                     Image(.icGenre)
                     Text(viewModel.genre.joined(separator: ", "))
                         .foregroundStyle(DesignSystem.colors.white)

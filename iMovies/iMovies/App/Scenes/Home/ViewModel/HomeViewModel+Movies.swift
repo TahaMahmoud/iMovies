@@ -56,7 +56,7 @@ extension HomeViewModel {
         var mappedMovies: [HighlightsMovie] = []
         for movie in movies {
             mappedMovies.append(HighlightsMovie(
-                posterURL: MoviePosterURLBuilder.getFullPosterURL(
+                posterURL: URLBuilder.getFullPath(
                     path: movie.posterPath ?? ""),
                 isAddedToWishlist: await isInWishList(movie: movie),
                 didPressDetails: { [weak self] in
@@ -86,7 +86,7 @@ extension HomeViewModel {
             category: section.category,
             moviesList: movies.shuffled().prefix(5).map {
                 HomeMovieItemViewModel(id: $0.id ?? 0,
-                                       posterURL: MoviePosterURLBuilder.getFullPosterURL(
+                                       posterURL: URLBuilder.getFullPath(
                                            path: $0.posterPath ?? ""),
                                        name: $0.title ?? "",
                                        rating: $0.voteAverage ?? 0) { movieId in

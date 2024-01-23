@@ -9,7 +9,6 @@ import Foundation
 import ConfigData
 
 struct APIConfig: ApiConfigProtocol {
-
     static var language: String {
         return "en-US"
     }
@@ -28,4 +27,8 @@ struct APIConfig: ApiConfigProtocol {
         return "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MDAxNzMzNDZlYjFhYzJjZGE2MTM5NGQ0MjE0NDZhNCIsInN1YiI6IjVkNzVlMzRkNTI5NGU3MDAwZGY0ZGMzMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IJq-1kmxuzAtror4LiXSBDd7BY6cHLUJBfueZS1QXfE"
     }
     // swiftlint: enable line_length
+
+    static var imagesBaseURL: String {
+        "https://image.tmdb.org/t/p/w500"
+    }
 }
