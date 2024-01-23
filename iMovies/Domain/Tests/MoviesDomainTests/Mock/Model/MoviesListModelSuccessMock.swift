@@ -5,14 +5,14 @@
 //  Created by Taha Mahmoud on 22/01/2024.
 //
 
-import Foundation
 @testable import CoreDomain
+import Foundation
 @testable import MoviesDomain
 
 var moviesListModelSuccessMock = MoviesListResponse(
     page: 1,
     results: [
-        .init(genreIDS: [1,2,3],
+        .init(genreIDS: [1, 2, 3],
               id: 1,
               originalLanguage: "en",
               originalTitle: "Movie 1 Name",
@@ -23,7 +23,7 @@ var moviesListModelSuccessMock = MoviesListResponse(
               video: false,
               voteAverage: 9.5,
               voteCount: 1200),
-        .init(genreIDS: [1,2,3],
+        .init(genreIDS: [1, 2, 3],
               id: 2,
               originalLanguage: "en",
               originalTitle: "Movie 2 Name",
@@ -34,7 +34,7 @@ var moviesListModelSuccessMock = MoviesListResponse(
               video: false,
               voteAverage: 9.5,
               voteCount: 1200),
-        .init(genreIDS: [1,2,3],
+        .init(genreIDS: [1, 2, 3],
               id: 3,
               originalLanguage: "en",
               originalTitle: "Movie 3 Name",
@@ -45,7 +45,7 @@ var moviesListModelSuccessMock = MoviesListResponse(
               video: false,
               voteAverage: 9.5,
               voteCount: 1200),
-        .init(genreIDS: [1,2,3],
+        .init(genreIDS: [1, 2, 3],
               id: 4,
               originalLanguage: "en",
               originalTitle: "Movie 4 Name",
@@ -56,7 +56,7 @@ var moviesListModelSuccessMock = MoviesListResponse(
               video: false,
               voteAverage: 9.5,
               voteCount: 1200),
-        .init(genreIDS: [1,2,3],
+        .init(genreIDS: [1, 2, 3],
               id: 5,
               originalLanguage: "en",
               originalTitle: "Movie 5 Name",
@@ -66,7 +66,7 @@ var moviesListModelSuccessMock = MoviesListResponse(
               title: "Movie 5 Name",
               video: false,
               voteAverage: 9.5,
-              voteCount: 1200),
+              voteCount: 1200)
     ],
     totalPages: 5,
     totalResults: 100)

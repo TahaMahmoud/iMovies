@@ -5,8 +5,8 @@
 //  Created by Taha Mahmoud on 22/01/2024.
 //
 
-import Foundation
 @testable import CoreDomain
+import Foundation
 @testable import MoviesDomain
 
 var moviesDetailsModelSuccessMock = MoviesDetailsResponse(
@@ -18,7 +18,7 @@ var moviesDetailsModelSuccessMock = MoviesDetailsResponse(
         .init(id: 3,
               name: "Drama"),
         .init(id: 4,
-              name: "Romance"),
+              name: "Romance")
     ],
     backdropPath: "/path_to_movie_1_image.png",
     homepage: "movie_link",

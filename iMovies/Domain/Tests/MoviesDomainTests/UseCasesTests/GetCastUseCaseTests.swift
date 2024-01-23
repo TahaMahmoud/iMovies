@@ -1,6 +1,6 @@
 //
 //  GetCastUseCaseTests.swift
-//  
+//
 //
 //  Created by Taha Mahmoud on 22/01/2024.
 //
@@ -47,7 +47,7 @@ final class GetCastUseCaseTests: XCTestCase {
             XCTFail("Unexpected failure")
         }
     }
-    
+
     func testGetReviewsFailed() async throws {
         getCastUseCase = GetCastUseCase(repo: moviesRepoFailedMock)
 
@@ -58,7 +58,7 @@ final class GetCastUseCaseTests: XCTestCase {
         switch result {
         case .success:
             XCTFail("Unexpected failure")
-        case .failure(let failure):
+        case let .failure(failure):
             XCTAssertEqual(failure.localizedDescription, MoviesError.unknown.localizedDescription)
         }
     }

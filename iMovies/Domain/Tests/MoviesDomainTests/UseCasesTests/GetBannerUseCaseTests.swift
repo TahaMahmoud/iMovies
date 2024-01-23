@@ -42,7 +42,7 @@ final class GetBannerUseCaseTests: XCTestCase {
             XCTFail("Unexpected failure")
         }
     }
-    
+
     func testGetReviewsFailed() async throws {
         getBannerUseCase = GetBannerUseCase(repo: bannerRepoFailedMock)
 
@@ -51,7 +51,7 @@ final class GetBannerUseCaseTests: XCTestCase {
         switch result {
         case .success:
             XCTFail("Unexpected failure")
-        case .failure(let failure):
+        case let .failure(failure):
             XCTAssertEqual(failure.localizedDescription, MoviesError.unknown.localizedDescription)
         }
     }

@@ -1,12 +1,12 @@
 //
 //  GetWishlistResponseMock.swift
-//  
+//
 //
 //  Created by Taha Mahmoud on 23/01/2024.
 //
 
-import Foundation
 @testable import CoreDomain
+import Foundation
 @testable import MoviesDomain
 
 var wishlistItems: [WishListItem] = [
@@ -27,5 +27,5 @@ var wishlistItems: [WishListItem] = [
           voteAverage: 9.5,
           genres: [1, 2, 3],
           releaseDate: "2024/01/12",
-          poster: "/path_to_movie_3.png"),
+          poster: "/path_to_movie_3.png")
 ]

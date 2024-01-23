@@ -48,7 +48,7 @@ final class GetHighlightesUseCasesTests: XCTestCase {
             XCTFail("Unexpected failure")
         }
     }
-    
+
     func testGetHighlightsFailed() async throws {
         getHighlightsUseCase = GetHighlightsUseCase(repo: moviesRepoFailedMock)
 
@@ -59,7 +59,7 @@ final class GetHighlightesUseCasesTests: XCTestCase {
         switch result {
         case .success:
             XCTFail("Unexpected failure")
-        case .failure(let failure):
+        case let .failure(failure):
             XCTAssertEqual(failure.localizedDescription, MoviesError.unknown.localizedDescription)
         }
     }

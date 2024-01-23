@@ -1,6 +1,6 @@
 //
 //  GetTopRatedUseCaseTests.swift
-//  
+//
 //
 //  Created by Taha Mahmoud on 22/01/2024.
 //
@@ -48,7 +48,7 @@ final class GetTopRatedUseCaseTests: XCTestCase {
             XCTFail("Unexpected failure")
         }
     }
-    
+
     func testGetTopRatedFailed() async throws {
         getTopRatedUseCase = GetTopRatedUseCase(repo: moviesRepoFailedMock)
 
@@ -59,7 +59,7 @@ final class GetTopRatedUseCaseTests: XCTestCase {
         switch result {
         case .success:
             XCTFail("Unexpected failure")
-        case .failure(let failure):
+        case let .failure(failure):
             XCTAssertEqual(failure.localizedDescription, MoviesError.unknown.localizedDescription)
         }
     }

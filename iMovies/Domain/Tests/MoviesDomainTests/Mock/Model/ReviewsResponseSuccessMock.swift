@@ -42,7 +42,7 @@ var reviewsResponseSuccessMock = ReviewsResponse(
               createdAt: "2024/1/14",
               id: "3",
               updatedAt: "2024/1/14",
-              url: "/path_to_author_3.png"),
+              url: "/path_to_author_3.png")
     ],
     totalPages: 5,
     totalResults: 100)

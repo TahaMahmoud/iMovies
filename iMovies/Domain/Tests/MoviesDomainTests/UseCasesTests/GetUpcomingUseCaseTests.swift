@@ -1,6 +1,6 @@
 //
 //  GetUpcomingUseCaseTests.swift
-//  
+//
 //
 //  Created by Taha Mahmoud on 22/01/2024.
 //
@@ -48,7 +48,7 @@ final class GetUpcomingUseCaseTests: XCTestCase {
             XCTFail("Unexpected failure")
         }
     }
-    
+
     func testGetUpcomingFailed() async throws {
         getUpcomingUseCase = GetUpcomingUseCase(repo: moviesRepoFailedMock)
 
@@ -59,7 +59,7 @@ final class GetUpcomingUseCaseTests: XCTestCase {
         switch result {
         case .success:
             XCTFail("Unexpected failure")
-        case .failure(let failure):
+        case let .failure(failure):
             XCTAssertEqual(failure.localizedDescription, MoviesError.unknown.localizedDescription)
         }
     }
