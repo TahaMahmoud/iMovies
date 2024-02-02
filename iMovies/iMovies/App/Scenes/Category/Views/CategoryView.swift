@@ -34,7 +34,7 @@ struct CategoryView: View {
     var emptyState: some View {
         VStack {
             Spacer()
-            EmptyView(icon: Image(.icEmptyContent),
+            EmptyStateView(icon: Image(.icEmptyContent),
                       title: "we are sorry, we can not find any movies :(",
                       titleColor: DesignSystem.colors.white,
                       subTitle: "Find your movie by Type title, categories, years, etc",
@@ -46,7 +46,7 @@ struct CategoryView: View {
 
     var failureState: some View {
         VStack {
-            EmptyView(icon: Image(.icEmptyContent),
+            EmptyStateView(icon: Image(.icEmptyContent),
                       title: "we are sorry, we can not find any movies :(",
                       titleColor: DesignSystem.colors.white,
                       subTitle: "Find your movie by Type title, categories, years, etc",

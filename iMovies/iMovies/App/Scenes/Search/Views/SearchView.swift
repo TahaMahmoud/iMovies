@@ -38,7 +38,7 @@ struct SearchView: View {
             search
                 .padding(.top, 20)
 
-            EmptyView(icon: Image(.icEmptySearch),
+            EmptyStateView(icon: Image(.icEmptySearch),
                       title: "we are sorry, we can not find the movie :(",
                       titleColor: DesignSystem.colors.white,
                       subTitle: "Find your movie by Type title, categories, years, etc ",
@@ -56,7 +56,7 @@ struct SearchView: View {
             search
                 .padding(.top, 20)
 
-            EmptyView(icon: Image(.icEmptySearch),
+            EmptyStateView(icon: Image(.icEmptySearch),
                       title: "we are sorry, we can not find any movies :(",
                       titleColor: DesignSystem.colors.white,
                       subTitle: "Find your movie by Type title, categories, years, etc",

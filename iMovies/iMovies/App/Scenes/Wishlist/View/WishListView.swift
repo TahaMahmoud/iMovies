@@ -33,7 +33,7 @@ struct WishListView: View {
     var emptyState: some View {
         VStack {
             Spacer()
-            EmptyView(icon: Image(.icEmptyContent),
+            EmptyStateView(icon: Image(.icEmptyContent),
                       title: "There is no movie yet!",
                       titleColor: DesignSystem.colors.white,
                       subTitle: "Start exploring movies and add them to your wishlist",
@@ -45,7 +45,7 @@ struct WishListView: View {
 
     var failureState: some View {
         VStack {
-            EmptyView(icon: Image(.icEmptyContent),
+            EmptyStateView(icon: Image(.icEmptyContent),
                       title: "There is no movie yet!",
                       titleColor: DesignSystem.colors.white,
                       subTitle: "Start exploring movies and add them to your wishlist",

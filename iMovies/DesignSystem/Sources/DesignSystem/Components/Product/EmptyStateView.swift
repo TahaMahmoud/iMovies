@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct EmptyView: View {
+public struct EmptyStateView: View {
     public var icon: Image?
     public var title: String?
     public var titleColor: Color = DesignSystem.colors.white
@@ -52,7 +52,7 @@ public struct EmptyView: View {
 }
 
 #Preview {
-    EmptyView(icon: Image(systemName: "plus"),
+    EmptyStateView(icon: Image(systemName: "plus"),
               title: "we are sorry, we can not find any movies :(",
               subTitle: "Find your movie by Type title, categories, years, etc ")
     .background(DesignSystem.colors.black)
